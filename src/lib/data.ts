@@ -1,7 +1,7 @@
 import type { LucideIcon } from 'lucide-react';
-import { Code, Users, BarChart, PenTool, Megaphone, BookOpen } from 'lucide-react';
+import { HardDrive, Mail, FileText, Share2, BrainCircuit, Computer } from 'lucide-react';
 
-export type SkillCategory = 'Técnica' | 'Liderazgo' | 'Análisis de Datos' | 'Diseño' | 'Marketing' | 'General';
+export type SkillCategory = 'Gestión de Archivos' | 'Comunicación Digital' | 'Herramientas de Productividad' | 'Colaboración en Línea' | 'Inteligencia Artificial' | 'Navegación Básica';
 
 export interface Module {
   moduleId: string;
@@ -26,150 +26,150 @@ export interface UserProgress {
 }
 
 export const skillCategories: { name: SkillCategory; icon: LucideIcon }[] = [
-  { name: 'Técnica', icon: Code },
-  { name: 'Liderazgo', icon: Users },
-  { name: 'Análisis de Datos', icon: BarChart },
-  { name: 'Diseño', icon: PenTool },
-  { name: 'Marketing', icon: Megaphone },
-  { name: 'General', icon: BookOpen },
+  { name: 'Gestión de Archivos', icon: HardDrive },
+  { name: 'Comunicación Digital', icon: Mail },
+  { name: 'Herramientas de Productividad', icon: FileText },
+  { name: 'Colaboración en Línea', icon: Share2 },
+  { name: 'Inteligencia Artificial', icon: BrainCircuit },
+  { name: 'Navegación Básica', icon: Computer },
 ];
 
 
 export const availableModules: Module[] = [
   {
-    moduleId: 'tech001',
-    title: 'Patrones Avanzados de React',
-    description: 'Profundiza en hooks, contexto y optimización del rendimiento en React.',
-    skillCategory: 'Técnica',
+    moduleId: 'files001',
+    title: 'Manejo de Archivos ZIP y RAR',
+    description: 'Aprende a comprimir y descomprimir archivos para organizar y compartir tus trabajos universitarios de forma sencilla.',
+    skillCategory: 'Gestión de Archivos',
     content: 'El contenido del módulo va aquí...',
     imageUrl: 'https://placehold.co/600x400.png',
-    dataAiHint: 'react code'
+    dataAiHint: 'file folders'
   },
   {
-    moduleId: 'lead001',
-    title: 'Comunicación Efectiva en Equipo',
-    description: 'Aprende estrategias para una comunicación clara y empática dentro de tu equipo.',
-    skillCategory: 'Liderazgo',
+    moduleId: 'productivity001',
+    title: 'Convierte Documentos de Word a PDF',
+    description: 'Asegúrate de que tus documentos se vean igual en cualquier dispositivo aprendiendo a exportarlos a PDF.',
+    skillCategory: 'Herramientas de Productividad',
     content: 'El contenido del módulo va aquí...',
     imageUrl: 'https://placehold.co/600x400.png',
-    dataAiHint: 'team communication'
+    dataAiHint: 'document icon'
   },
   {
-    moduleId: 'data001',
-    title: 'SQL para Análisis de Datos',
-    description: 'Domina las consultas SQL para extraer y analizar datos de bases de datos.',
-    skillCategory: 'Análisis de Datos',
+    moduleId: 'comms001',
+    title: 'Dominando tu Correo Electrónico',
+    description: 'Desde enviar y recibir hasta filtrar y programar envíos. Domina la herramienta de comunicación más importante.',
+    skillCategory: 'Comunicación Digital',
     content: 'El contenido del módulo va aquí...',
     imageUrl: 'https://placehold.co/600x400.png',
-    dataAiHint: 'data analysis'
+    dataAiHint: 'email inbox'
   },
   {
-    moduleId: 'design001',
-    title: 'Fundamentos de Diseño UI/UX',
-    description: 'Una introducción a los principios del diseño de interfaz y experiencia de usuario.',
-    skillCategory: 'Diseño',
+    moduleId: 'collab001',
+    title: 'WeTransfer: Envía Archivos Grandes',
+    description: 'Aprende a utilizar servicios como WeTransfer para compartir presentaciones y videos pesados sin problemas.',
+    skillCategory: 'Colaboración en Línea',
     content: 'El contenido del módulo va aquí...',
     imageUrl: 'https://placehold.co/600x400.png',
-    dataAiHint: 'ui design'
+    dataAiHint: 'cloud upload'
   },
    {
-    moduleId: 'tech002',
-    title: 'Introducción a Python',
-    description: 'Aprende los fundamentos de la programación en Python para desarrollo backend y ciencia de datos.',
-    skillCategory: 'Técnica',
+    moduleId: 'ai001',
+    title: 'Introducción a ChatGPT y Gemini',
+    description: 'Descubre cómo usar herramientas de IA para investigar, generar ideas y mejorar tus trabajos académicos.',
+    skillCategory: 'Inteligencia Artificial',
     content: 'El contenido del módulo va aquí...',
     imageUrl: 'https://placehold.co/600x400.png',
-    dataAiHint: 'python code'
+    dataAiHint: 'robot brain'
   },
   {
-    moduleId: 'market001',
-    title: 'Fundamentos de Marketing Digital',
-    description: 'Cubre estrategias de SEO, redes sociales y marketing de contenidos.',
-    skillCategory: 'Marketing',
+    moduleId: 'nav001',
+    title: 'Navegación Eficaz en el Computador',
+    description: 'Conceptos básicos para encontrar archivos, usar carpetas y moverte con fluidez en tu sistema operativo.',
+    skillCategory: 'Navegación Básica',
     content: 'El contenido del módulo va aquí...',
     imageUrl: 'https://placehold.co/600x400.png',
-    dataAiHint: 'digital marketing'
+    dataAiHint: 'computer desktop'
   },
   {
-    moduleId: 'lead002',
-    title: 'Conceptos Básicos de Gestión de Proyectos',
-    description: 'Un resumen de las metodologías Agile y Scrum para la gestión de proyectos.',
-    skillCategory: 'Liderazgo',
+    moduleId: 'productivity002',
+    title: 'Primeros Pasos con Hojas de Cálculo',
+    description: 'Aprende a crear tablas, usar fórmulas básicas y generar gráficos para organizar y presentar datos.',
+    skillCategory: 'Herramientas de Productividad',
     content: 'El contenido del módulo va aquí...',
     imageUrl: 'https://placehold.co/600x400.png',
-    dataAiHint: 'project management'
+    dataAiHint: 'spreadsheet data'
   },
   {
-    moduleId: 'gen001',
-    title: 'Confianza para Hablar en Público',
-    description: 'Desarrolla la confianza y las habilidades para hablar en público de manera efectiva.',
-    skillCategory: 'General',
+    moduleId: 'comms002',
+    title: 'Etiqueta en la Comunicación Online',
+    description: 'Aprende las normas básicas de cortesía y profesionalismo en correos, foros y chats académicos.',
+    skillCategory: 'Comunicación Digital',
     content: 'El contenido del módulo va aquí...',
     imageUrl: 'https://placehold.co/600x400.png',
-    dataAiHint: 'public speaking'
+    dataAiHint: 'online chat'
   }
 ];
 
 export const assessmentQuestions: Question[] = [
     {
         questionId: 'q1',
-        text: '¿Qué tan cómodo te sientes escribiendo funciones complejas en JavaScript?',
+        text: 'Si recibes un correo con un archivo llamado "trabajo_final.rar", ¿sabes qué hacer para ver su contenido?',
         options: [
-            { text: 'Nada cómodo', weight: 1 },
-            { text: 'Un poco cómodo', weight: 3 },
-            { text: 'Moderadamente cómodo', weight: 6 },
-            { text: 'Muy cómodo', weight: 10 },
+            { text: 'No, no sé qué es un archivo .rar', weight: 1 },
+            { text: 'He oído hablar de ellos, pero no estoy seguro', weight: 4 },
+            { text: 'Creo que necesitaría un programa especial', weight: 7 },
+            { text: 'Sí, sé cómo descomprimirlo fácilmente', weight: 10 },
         ],
-        skillCategory: 'Técnica'
+        skillCategory: 'Gestión de Archivos'
     },
     {
         questionId: 'q2',
-        text: 'Al liderar un proyecto, ¿cómo manejas típicamente los desacuerdos dentro de tu equipo?',
+        text: 'Cuando terminas un trabajo en Word, ¿cómo lo envías para asegurarte de que nadie pueda modificarlo?',
         options: [
-            { text: 'Los evito', weight: 1 },
-            { text: 'Intento encontrar un compromiso rápido', weight: 4 },
-            { text: 'Facilito una discusión para encontrar la mejor solución', weight: 8 },
-            { text: 'Tomo una decisión ejecutiva', weight: 6 },
+            { text: 'Lo envío como archivo de Word (.docx)', weight: 2 },
+            { text: 'No estoy seguro de cuál es la mejor forma', weight: 4 },
+            { text: 'Sé que se puede guardar en otro formato, pero no sé cómo', weight: 6 },
+            { text: 'Lo exporto a PDF antes de enviarlo', weight: 10 },
         ],
-        skillCategory: 'Liderazgo'
+        skillCategory: 'Herramientas de Productividad'
     },
     {
         questionId: 'q3',
-        text: '¿Qué tan seguro te sientes al crear una paleta de colores cohesiva para un nuevo proyecto de diseño?',
+        text: '¿Qué tan cómodo te sientes organizando tus correos en carpetas o etiquetas (por ejemplo, por materia)?',
         options: [
-            { text: 'Inseguro', weight: 1 },
-            { text: 'Puedo hacerlo con una herramienta', weight: 4 },
-            { text: 'Bastante seguro', weight: 7 },
-            { text: 'Muy seguro, entiendo la teoría del color', weight: 10 },
+            { text: 'No sabía que se podía hacer eso', weight: 1 },
+            { text: 'Me gustaría aprender a hacerlo', weight: 4 },
+            { text: 'A veces lo hago, pero me cuesta mantener el orden', weight: 7 },
+            { text: 'Tengo un sistema de carpetas y lo uso constantemente', weight: 10 },
         ],
-        skillCategory: 'Diseño'
+        skillCategory: 'Comunicación Digital'
     },
     {
         questionId: 'q4',
-        text: '¿Cuál de las siguientes opciones describe mejor tu habilidad para escribir consultas SQL para unir múltiples tablas?',
+        text: 'Un profesor te pide buscar "artículos académicos sobre la fotosíntesis publicados después de 2020". ¿Qué tan seguro te sientes de poder encontrar esa información usando un buscador web?',
         options: [
-            { text: 'No sé SQL', weight: 0 },
-            { text: 'Puedo escribir una instrucción SELECT simple', weight: 2 },
-            { text: 'Me siento cómodo con INNER y LEFT joins', weight: 7 },
-            { text: 'Puedo escribir consultas complejas con múltiples uniones y subconsultas', weight: 10 },
+            { text: 'Muy inseguro, no sabría por dónde empezar', weight: 1 },
+            { text: 'Buscaría "fotosíntesis" y revisaría los resultados', weight: 4 },
+            { text: 'Usaría la búsqueda avanzada para filtrar por fecha', weight: 8 },
+            { text: 'Sé cómo usar operadores de búsqueda para ser muy preciso', weight: 10 },
         ],
-        skillCategory: 'Análisis de Datos'
+        skillCategory: 'Navegación Básica'
     },
     {
         questionId: 'q5',
-        text: '¿Cómo abordas el aprendizaje de un nuevo lenguaje de programación o framework?',
+        text: '¿Has utilizado alguna vez una herramienta de IA como ChatGPT o Gemini para ayudarte con tus estudios?',
         options: [
-            { text: 'Espero hasta que sea absolutamente necesario', weight: 2 },
-            { text: 'Leo la documentación', weight: 6 },
-            { text: 'Construyo un pequeño proyecto con él', weight: 10 },
-            { text: 'Tomo un curso completo en línea', weight: 8 },
+            { text: 'No, y no me interesa', weight: 1 },
+            { text: 'He oído hablar de ellas, pero nunca las he usado', weight: 4 },
+            { text: 'Las he usado un par de veces para hacer preguntas sencillas', weight: 7 },
+            { text: 'Sí, las uso regularmente para investigar y generar borradores', weight: 10 },
         ],
-        skillCategory: 'Técnica'
+        skillCategory: 'Inteligencia Artificial'
     }
 ];
 
 export const userProgressData: UserProgress[] = [
-    { moduleId: 'tech001', progress: 75 },
-    { moduleId: 'lead001', progress: 40 },
-    { moduleId: 'design001', progress: 10 },
+    { moduleId: 'files001', progress: 75 },
+    { moduleId: 'comms001', progress: 40 },
+    { moduleId: 'ai001', progress: 10 },
 ]

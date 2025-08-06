@@ -47,7 +47,7 @@ export default function DashboardPage() {
             <Trophy className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">3 Habilidades</div>
+            <div className="text-2xl font-bold">0 Habilidades</div>
             <p className="text-xs text-muted-foreground">Basado en módulos completados</p>
           </CardContent>
         </Card>
