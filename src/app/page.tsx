@@ -47,7 +47,7 @@ export default function Home() {
         <section className="container py-12">
           <div className="relative rounded-lg bg-card text-card-foreground shadow-lg overflow-hidden">
              <Image
-                src="https://placehold.co/1200x600.png"
+                src="/image/portada1.jpg"
                 alt="Panel de Aprendizaje Personalizado"
                 width={1200}
                 height={600}

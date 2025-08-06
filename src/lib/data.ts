@@ -42,7 +42,7 @@ export const availableModules: Module[] = [
     description: 'Aprende a comprimir y descomprimir archivos para organizar y compartir tus trabajos universitarios de forma sencilla.',
     skillCategory: 'Gestión de Archivos',
     content: 'El contenido del módulo va aquí...',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: '/image/archivos_rar.png',
     dataAiHint: 'file folders'
   },
   {
@@ -51,7 +51,7 @@ export const availableModules: Module[] = [
     description: 'Asegúrate de que tus documentos se vean igual en cualquier dispositivo aprendiendo a exportarlos a PDF.',
     skillCategory: 'Herramientas de Productividad',
     content: 'El contenido del módulo va aquí...',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: '/image/wordApdf.png',
     dataAiHint: 'document icon'
   },
   {
@@ -60,7 +60,7 @@ export const availableModules: Module[] = [
     description: 'Desde enviar y recibir hasta filtrar y programar envíos. Domina la herramienta de comunicación más importante.',
     skillCategory: 'Comunicación Digital',
     content: 'El contenido del módulo va aquí...',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: '/image/modulo_Corre.png',
     dataAiHint: 'email inbox'
   },
   {
@@ -69,7 +69,7 @@ export const availableModules: Module[] = [
     description: 'Aprende a utilizar servicios como WeTransfer para compartir presentaciones y videos pesados sin problemas.',
     skillCategory: 'Colaboración en Línea',
     content: 'El contenido del módulo va aquí...',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: '/image/wetransfer.png',
     dataAiHint: 'cloud upload'
   },
    {
@@ -78,7 +78,7 @@ export const availableModules: Module[] = [
     description: 'Descubre cómo usar herramientas de IA para investigar, generar ideas y mejorar tus trabajos académicos.',
     skillCategory: 'Inteligencia Artificial',
     content: 'El contenido del módulo va aquí...',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: '/image/Gpt.png',
     dataAiHint: 'robot brain'
   },
   {
@@ -87,7 +87,7 @@ export const availableModules: Module[] = [
     description: 'Conceptos básicos para encontrar archivos, usar carpetas y moverte con fluidez en tu sistema operativo.',
     skillCategory: 'Navegación Básica',
     content: 'El contenido del módulo va aquí...',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: '/image/wetransfer.png',
     dataAiHint: 'computer desktop'
   },
   {
@@ -96,7 +96,7 @@ export const availableModules: Module[] = [
     description: 'Aprende a crear tablas, usar fórmulas básicas y generar gráficos para organizar y presentar datos.',
     skillCategory: 'Herramientas de Productividad',
     content: 'El contenido del módulo va aquí...',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: '/image/hojaCalculo.jpg',
     dataAiHint: 'spreadsheet data'
   },
   {
@@ -105,7 +105,7 @@ export const availableModules: Module[] = [
     description: 'Aprende las normas básicas de cortesía y profesionalismo en correos, foros y chats académicos.',
     skillCategory: 'Comunicación Digital',
     content: 'El contenido del módulo va aquí...',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: '/image/modulo_Corre.png',
     dataAiHint: 'online chat'
   }
 ];
