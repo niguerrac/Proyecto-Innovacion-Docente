@@ -1,7 +1,7 @@
 import type { LucideIcon } from 'lucide-react';
 import { Code, Users, BarChart, PenTool, Megaphone, BookOpen } from 'lucide-react';
 
-export type SkillCategory = 'Technical' | 'Leadership' | 'Data Analysis' | 'Design' | 'Marketing' | 'General';
+export type SkillCategory = 'Técnica' | 'Liderazgo' | 'Análisis de Datos' | 'Diseño' | 'Marketing' | 'General';
 
 export interface Module {
   moduleId: string;
@@ -26,10 +26,10 @@ export interface UserProgress {
 }
 
 export const skillCategories: { name: SkillCategory; icon: LucideIcon }[] = [
-  { name: 'Technical', icon: Code },
-  { name: 'Leadership', icon: Users },
-  { name: 'Data Analysis', icon: BarChart },
-  { name: 'Design', icon: PenTool },
+  { name: 'Técnica', icon: Code },
+  { name: 'Liderazgo', icon: Users },
+  { name: 'Análisis de Datos', icon: BarChart },
+  { name: 'Diseño', icon: PenTool },
   { name: 'Marketing', icon: Megaphone },
   { name: 'General', icon: BookOpen },
 ];
@@ -38,73 +38,73 @@ export const skillCategories: { name: SkillCategory; icon: LucideIcon }[] = [
 export const availableModules: Module[] = [
   {
     moduleId: 'tech001',
-    title: 'Advanced React Patterns',
-    description: 'Deep dive into hooks, context, and performance optimization in React.',
-    skillCategory: 'Technical',
-    content: 'Module content goes here...',
+    title: 'Patrones Avanzados de React',
+    description: 'Profundiza en hooks, contexto y optimización del rendimiento en React.',
+    skillCategory: 'Técnica',
+    content: 'El contenido del módulo va aquí...',
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'react code'
   },
   {
     moduleId: 'lead001',
-    title: 'Effective Team Communication',
-    description: 'Learn strategies for clear and empathetic communication within your team.',
-    skillCategory: 'Leadership',
-    content: 'Module content goes here...',
+    title: 'Comunicación Efectiva en Equipo',
+    description: 'Aprende estrategias para una comunicación clara y empática dentro de tu equipo.',
+    skillCategory: 'Liderazgo',
+    content: 'El contenido del módulo va aquí...',
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'team communication'
   },
   {
     moduleId: 'data001',
-    title: 'SQL for Data Analysis',
-    description: 'Master SQL queries to extract and analyze data from databases.',
-    skillCategory: 'Data Analysis',
-    content: 'Module content goes here...',
+    title: 'SQL para Análisis de Datos',
+    description: 'Domina las consultas SQL para extraer y analizar datos de bases de datos.',
+    skillCategory: 'Análisis de Datos',
+    content: 'El contenido del módulo va aquí...',
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'data analysis'
   },
   {
     moduleId: 'design001',
-    title: 'UI/UX Design Fundamentals',
-    description: 'An introduction to the principles of user interface and user experience design.',
-    skillCategory: 'Design',
-    content: 'Module content goes here...',
+    title: 'Fundamentos de Diseño UI/UX',
+    description: 'Una introducción a los principios del diseño de interfaz y experiencia de usuario.',
+    skillCategory: 'Diseño',
+    content: 'El contenido del módulo va aquí...',
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'ui design'
   },
    {
     moduleId: 'tech002',
-    title: 'Introduction to Python',
-    description: 'Learn the fundamentals of Python programming for backend development and data science.',
-    skillCategory: 'Technical',
-    content: 'Module content goes here...',
+    title: 'Introducción a Python',
+    description: 'Aprende los fundamentos de la programación en Python para desarrollo backend y ciencia de datos.',
+    skillCategory: 'Técnica',
+    content: 'El contenido del módulo va aquí...',
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'python code'
   },
   {
     moduleId: 'market001',
-    title: 'Digital Marketing Essentials',
-    description: 'Covering SEO, social media, and content marketing strategies.',
+    title: 'Fundamentos de Marketing Digital',
+    description: 'Cubre estrategias de SEO, redes sociales y marketing de contenidos.',
     skillCategory: 'Marketing',
-    content: 'Module content goes here...',
+    content: 'El contenido del módulo va aquí...',
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'digital marketing'
   },
   {
     moduleId: 'lead002',
-    title: 'Project Management Basics',
-    description: 'An overview of Agile and Scrum methodologies for managing projects.',
-    skillCategory: 'Leadership',
-    content: 'Module content goes here...',
+    title: 'Conceptos Básicos de Gestión de Proyectos',
+    description: 'Un resumen de las metodologías Agile y Scrum para la gestión de proyectos.',
+    skillCategory: 'Liderazgo',
+    content: 'El contenido del módulo va aquí...',
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'project management'
   },
   {
     moduleId: 'gen001',
-    title: 'Public Speaking Confidence',
-    description: 'Build confidence and skills for effective public speaking.',
+    title: 'Confianza para Hablar en Público',
+    description: 'Desarrolla la confianza y las habilidades para hablar en público de manera efectiva.',
     skillCategory: 'General',
-    content: 'Module content goes here...',
+    content: 'El contenido del módulo va aquí...',
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'public speaking'
   }
@@ -113,58 +113,58 @@ export const availableModules: Module[] = [
 export const assessmentQuestions: Question[] = [
     {
         questionId: 'q1',
-        text: 'How comfortable are you with writing complex functions in JavaScript?',
+        text: '¿Qué tan cómodo te sientes escribiendo funciones complejas en JavaScript?',
         options: [
-            { text: 'Not comfortable at all', weight: 1 },
-            { text: 'Slightly comfortable', weight: 3 },
-            { text: 'Moderately comfortable', weight: 6 },
-            { text: 'Very comfortable', weight: 10 },
+            { text: 'Nada cómodo', weight: 1 },
+            { text: 'Un poco cómodo', weight: 3 },
+            { text: 'Moderadamente cómodo', weight: 6 },
+            { text: 'Muy cómodo', weight: 10 },
         ],
-        skillCategory: 'Technical'
+        skillCategory: 'Técnica'
     },
     {
         questionId: 'q2',
-        text: 'When leading a project, how do you typically handle disagreements within your team?',
+        text: 'Al liderar un proyecto, ¿cómo manejas típicamente los desacuerdos dentro de tu equipo?',
         options: [
-            { text: 'Avoid them', weight: 1 },
-            { text: 'Try to find a quick compromise', weight: 4 },
-            { text: 'Facilitate a discussion to find the best solution', weight: 8 },
-            { text: 'Make an executive decision', weight: 6 },
+            { text: 'Los evito', weight: 1 },
+            { text: 'Intento encontrar un compromiso rápido', weight: 4 },
+            { text: 'Facilito una discusión para encontrar la mejor solución', weight: 8 },
+            { text: 'Tomo una decisión ejecutiva', weight: 6 },
         ],
-        skillCategory: 'Leadership'
+        skillCategory: 'Liderazgo'
     },
     {
         questionId: 'q3',
-        text: 'How confident are you in creating a cohesive color palette for a new design project?',
+        text: '¿Qué tan seguro te sientes al crear una paleta de colores cohesiva para un nuevo proyecto de diseño?',
         options: [
-            { text: 'Not confident', weight: 1 },
-            { text: 'I can do it with a tool', weight: 4 },
-            { text: 'Fairly confident', weight: 7 },
-            { text: 'Very confident, I understand color theory', weight: 10 },
+            { text: 'Inseguro', weight: 1 },
+            { text: 'Puedo hacerlo con una herramienta', weight: 4 },
+            { text: 'Bastante seguro', weight: 7 },
+            { text: 'Muy seguro, entiendo la teoría del color', weight: 10 },
         ],
-        skillCategory: 'Design'
+        skillCategory: 'Diseño'
     },
     {
         questionId: 'q4',
-        text: 'Which of the following best describes your ability to write SQL queries to join multiple tables?',
+        text: '¿Cuál de las siguientes opciones describe mejor tu habilidad para escribir consultas SQL para unir múltiples tablas?',
         options: [
-            { text: 'I don\'t know SQL', weight: 0 },
-            { text: 'I can write a simple SELECT statement', weight: 2 },
-            { text: 'I am comfortable with INNER and LEFT joins', weight: 7 },
-            { text: 'I can write complex queries with multiple joins and subqueries', weight: 10 },
+            { text: 'No sé SQL', weight: 0 },
+            { text: 'Puedo escribir una instrucción SELECT simple', weight: 2 },
+            { text: 'Me siento cómodo con INNER y LEFT joins', weight: 7 },
+            { text: 'Puedo escribir consultas complejas con múltiples uniones y subconsultas', weight: 10 },
         ],
-        skillCategory: 'Data Analysis'
+        skillCategory: 'Análisis de Datos'
     },
     {
         questionId: 'q5',
-        text: 'How do you approach learning a new programming language or framework?',
+        text: '¿Cómo abordas el aprendizaje de un nuevo lenguaje de programación o framework?',
         options: [
-            { text: 'I wait until I absolutely have to', weight: 2 },
-            { text: 'I read the documentation', weight: 6 },
-            { text: 'I build a small project with it', weight: 10 },
-            { text: 'I take a full online course', weight: 8 },
+            { text: 'Espero hasta que sea absolutamente necesario', weight: 2 },
+            { text: 'Leo la documentación', weight: 6 },
+            { text: 'Construyo un pequeño proyecto con él', weight: 10 },
+            { text: 'Tomo un curso completo en línea', weight: 8 },
         ],
-        skillCategory: 'Technical'
+        skillCategory: 'Técnica'
     }
 ];
 

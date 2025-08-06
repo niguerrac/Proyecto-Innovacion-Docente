@@ -44,18 +44,18 @@ export default function AssessmentPage() {
              <div className="mx-auto bg-primary/10 rounded-full p-3 w-fit mb-4">
                 <HelpCircle className="h-10 w-10 text-primary" />
              </div>
-             <CardTitle className="text-3xl">Skill Assessment</CardTitle>
-             <CardDescription className="text-lg">Let&apos;s find out where your strengths are and where you can grow.</CardDescription>
+             <CardTitle className="text-3xl">Evaluación de Habilidades</CardTitle>
+             <CardDescription className="text-lg">Averigüemos cuáles son tus fortalezas y dónde puedes mejorar.</CardDescription>
            </CardHeader>
            <CardContent className="space-y-6 text-center">
-             <p className="text-muted-foreground">This short quiz will help us tailor a learning path just for you. It consists of {assessmentQuestions.length} questions and should only take a few minutes.</p>
+             <p className="text-muted-foreground">Este breve cuestionario nos ayudará a diseñar un plan de aprendizaje solo para ti. Consta de {assessmentQuestions.length} preguntas y solo te llevará unos minutos.</p>
              <ul className="text-left space-y-2 w-fit mx-auto">
-                <li className="flex items-center gap-2"><Check className="text-green-500"/> Be honest for the best results.</li>
-                <li className="flex items-center gap-2"><Check className="text-green-500"/> There are no wrong answers.</li>
-                <li className="flex items-center gap-2"><Check className="text-green-500"/> Your recommendations await!</li>
+                <li className="flex items-center gap-2"><Check className="text-green-500"/> Sé honesto para obtener los mejores resultados.</li>
+                <li className="flex items-center gap-2"><Check className="text-green-500"/> No hay respuestas incorrectas.</li>
+                <li className="flex items-center gap-2"><Check className="text-green-500"/> ¡Tus recomendaciones te esperan!</li>
              </ul>
              <Button size="lg" onClick={startQuiz}>
-               Start Assessment <ArrowRight className="ml-2" />
+               Comenzar Evaluación <ArrowRight className="ml-2" />
              </Button>
            </CardContent>
          </Card>

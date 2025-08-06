@@ -21,13 +21,13 @@ import { useToast } from '@/hooks/use-toast';
 
 const formSchema = z.object({
   name: z.string().min(2, {
-    message: 'Name must be at least 2 characters.',
+    message: 'El nombre debe tener al menos 2 caracteres.',
   }),
   email: z.string().email({
-    message: 'Please enter a valid email address.',
+    message: 'Por favor, introduce una dirección de correo electrónico válida.',
   }),
   password: z.string().min(8, {
-    message: 'Password must be at least 8 characters.',
+    message: 'La contraseña debe tener al menos 8 caracteres.',
   }),
 });
 
@@ -47,8 +47,8 @@ export default function SignupPage() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
     toast({
-      title: "Account Created!",
-      description: "Redirecting you to the dashboard.",
+      title: "¡Cuenta Creada!",
+      description: "Redirigiéndote al panel de control.",
     })
     // Simulate successful registration and redirect
     setTimeout(() => {
@@ -63,9 +63,9 @@ export default function SignupPage() {
           <Link href="/" className="inline-block mx-auto mb-4">
             <Logo className="h-10 w-10 text-primary" />
           </Link>
-          <CardTitle className="text-2xl">Create your account</CardTitle>
+          <CardTitle className="text-2xl">Crea tu cuenta</CardTitle>
           <CardDescription>
-            Join Tikap Skills to start your personalized learning journey.
+            Únete a Tikap Skills para comenzar tu viaje de aprendizaje personalizado.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -76,9 +76,9 @@ export default function SignupPage() {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Name</FormLabel>
+                    <FormLabel>Nombre</FormLabel>
                     <FormControl>
-                      <Input placeholder="Your Name" {...field} />
+                      <Input placeholder="Tu Nombre" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -89,9 +89,9 @@ export default function SignupPage() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel>Correo Electrónico</FormLabel>
                     <FormControl>
-                      <Input type="email" placeholder="your.email@example.com" {...field} />
+                      <Input type="email" placeholder="tu.email@ejemplo.com" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -102,7 +102,7 @@ export default function SignupPage() {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Password</FormLabel>
+                    <FormLabel>Contraseña</FormLabel>
                     <FormControl>
                       <Input type="password" placeholder="********" {...field} />
                     </FormControl>
@@ -111,14 +111,14 @@ export default function SignupPage() {
                 )}
               />
               <Button type="submit" className="w-full">
-                Create Account
+                Crear Cuenta
               </Button>
             </form>
           </Form>
           <div className="mt-4 text-center text-sm">
-            Already have an account?{' '}
+            ¿Ya tienes una cuenta?{' '}
             <Link href="#" className="underline text-primary">
-              Log in
+              Iniciar sesión
             </Link>
           </div>
         </CardContent>

@@ -24,9 +24,9 @@ import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Separator } from '../ui/separator';
 
 const menuItems = [
-  { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
-  { href: '/assessment', label: 'Assessment', icon: ClipboardCheck },
-  { href: '/modules', label: 'Modules', icon: Library },
+  { href: '/dashboard', label: 'Panel', icon: LayoutDashboard },
+  { href: '/assessment', label: 'Evaluación', icon: ClipboardCheck },
+  { href: '/modules', label: 'Módulos', icon: Library },
 ];
 
 export function SidebarNav() {
@@ -63,18 +63,18 @@ export function SidebarNav() {
         <Separator className="my-2" />
         <SidebarMenu>
            <SidebarMenuItem>
-              <SidebarMenuButton asChild tooltip="Settings">
+              <SidebarMenuButton asChild tooltip="Configuración">
                 <Link href="#">
                   <Settings />
-                  <span>Settings</span>
+                  <span>Configuración</span>
                 </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-              <SidebarMenuButton asChild tooltip="Log Out">
+              <SidebarMenuButton asChild tooltip="Cerrar Sesión">
                 <Link href="/">
                   <LogOut />
-                  <span>Log Out</span>
+                  <span>Cerrar Sesión</span>
                 </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>
@@ -86,8 +86,8 @@ export function SidebarNav() {
               <AvatarFallback>U</AvatarFallback>
             </Avatar>
             <div className="flex flex-col">
-                <span className="font-semibold text-sm">User</span>
-                <span className="text-xs text-muted-foreground">user@email.com</span>
+                <span className="font-semibold text-sm">Usuario</span>
+                <span className="text-xs text-muted-foreground">usuario@email.com</span>
             </div>
         </div>
       </SidebarFooter>

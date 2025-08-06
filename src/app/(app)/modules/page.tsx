@@ -23,8 +23,8 @@ export default function ModulesPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight">Module Catalog</h1>
-        <p className="text-muted-foreground">Browse all available modules to expand your skills.</p>
+        <h1 className="text-3xl font-bold tracking-tight">Catálogo de Módulos</h1>
+        <p className="text-muted-foreground">Explora todos los módulos disponibles para ampliar tus habilidades.</p>
       </div>
 
       <div className="flex flex-col md:flex-row gap-4">
@@ -32,7 +32,7 @@ export default function ModulesPage() {
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
           <Input
             type="search"
-            placeholder="Search modules..."
+            placeholder="Buscar módulos..."
             className="pl-10"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -43,10 +43,10 @@ export default function ModulesPage() {
             onValueChange={(value) => setSelectedCategory(value as SkillCategory | 'all')}
         >
           <SelectTrigger className="w-full md:w-[200px]">
-            <SelectValue placeholder="Filter by category" />
+            <SelectValue placeholder="Filtrar por categoría" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">All Categories</SelectItem>
+            <SelectItem value="all">Todas las Categorías</SelectItem>
             {skillCategories.map(category => (
               <SelectItem key={category.name} value={category.name}>
                 {category.name}
@@ -73,8 +73,8 @@ export default function ModulesPage() {
         ))}
         {filteredModules.length === 0 && (
             <div className="text-center text-muted-foreground col-span-full py-12">
-                <p className="text-lg">No modules found.</p>
-                <p>Try adjusting your search or filters.</p>
+                <p className="text-lg">No se encontraron módulos.</p>
+                <p>Intenta ajustar tu búsqueda o filtros.</p>
             </div>
         )}
       </div>

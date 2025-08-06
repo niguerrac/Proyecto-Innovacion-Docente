@@ -48,14 +48,14 @@ export default function AssessmentResults({ scores }: AssessmentResultsProps) {
   return (
     <div className="space-y-8">
         <div>
-            <h1 className="text-3xl font-bold tracking-tight">Assessment Results</h1>
-            <p className="text-muted-foreground">Here's a breakdown of your skill assessment.</p>
+            <h1 className="text-3xl font-bold tracking-tight">Resultados de la Evaluación</h1>
+            <p className="text-muted-foreground">Aquí tienes un desglose de tu evaluación de habilidades.</p>
         </div>
 
         <Card>
             <CardHeader>
-                <CardTitle>Your Skill Profile</CardTitle>
-                <CardDescription>This visualizes your scores in each category.</CardDescription>
+                <CardTitle>Tu Perfil de Habilidades</CardTitle>
+                <CardDescription>Esto visualiza tus puntuaciones en cada categoría.</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
                 {Object.entries(scores).map(([category, data]) => (
@@ -74,9 +74,9 @@ export default function AssessmentResults({ scores }: AssessmentResultsProps) {
             <CardHeader>
                 <div className="flex items-center gap-2">
                     <Zap className="text-primary" />
-                    <CardTitle>AI-Powered Recommendations</CardTitle>
+                    <CardTitle>Recomendaciones con IA</CardTitle>
                 </div>
-                <CardDescription>Based on your results, here are some modules we think you'll find helpful.</CardDescription>
+                <CardDescription>Basado en tus resultados, aquí hay algunos módulos que creemos que te serán útiles.</CardDescription>
             </CardHeader>
             <CardContent>
                 {recommendations.loading && <RecommendationsSkeleton />}
@@ -87,19 +87,19 @@ export default function AssessmentResults({ scores }: AssessmentResultsProps) {
                             <Card key={module.moduleId} className="bg-background">
                                 <CardHeader>
                                     <CardTitle>{module.title}</CardTitle>
-                                    <CardDescription>Category: {module.skillCategory}</CardDescription>
+                                    <CardDescription>Categoría: {module.skillCategory}</CardDescription>
                                 </CardHeader>
                                 <CardContent>
                                     <p className="mb-2">{module.description}</p>
                                     <div className="bg-primary/10 p-3 rounded-lg border border-primary/20">
                                         <p className="font-semibold text-sm flex items-center gap-2 text-primary">
                                             <Sparkles className="w-4 h-4"/>
-                                            Recommendation Reason
+                                            Motivo de la recomendación
                                         </p>
                                         <p className="text-sm text-primary/80">{module.reason}</p>
                                     </div>
                                     <Button asChild className="mt-4">
-                                        <Link href="/modules">View Module</Link>
+                                        <Link href="/modules">Ver Módulo</Link>
                                     </Button>
                                 </CardContent>
                             </Card>

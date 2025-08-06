@@ -2,33 +2,33 @@
 'use server';
 
 /**
- * @fileOverview Recommends personalized learning modules based on skill assessment results.
+ * @fileOverview Recomienda módulos de aprendizaje personalizados basados en los resultados de la evaluación de habilidades.
  *
- * - recommendLearningModules - A function that recommends learning modules.
- * - RecommendLearningModulesInput - The input type for the recommendLearningModules function.
- * - RecommendLearningModulesOutput - The return type for the recommendLearningModules function.
+ * - recommendLearningModules - Una función que recomienda módulos de aprendizaje.
+ * - RecommendLearningModulesInput - El tipo de entrada para la función recommendLearningModules.
+ * - RecommendLearningModulesOutput - El tipo de retorno para la función recommendLearningModules.
  */
 
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
 const RecommendLearningModulesInputSchema = z.object({
-  assessmentResults: z.record(z.number()).describe('A map of skill categories to assessment scores.'),
+  assessmentResults: z.record(z.number()).describe('Un mapa de categorías de habilidades a puntajes de evaluación.'),
   availableModules: z.array(z.object({
-    moduleId: z.string().describe('The unique identifier for the module.'),
-    title: z.string().describe('The title of the module.'),
-    description: z.string().describe('A brief description of the module.'),
-    skillCategory: z.string().describe('The skill category the module addresses.'),
-  })).describe('A list of available learning modules with their details.'),
+    moduleId: z.string().describe('El identificador único para el módulo.'),
+    title: z.string().describe('El título del módulo.'),
+    description: z.string().describe('Una breve descripción del módulo.'),
+    skillCategory: z.string().describe('La categoría de habilidad que aborda el módulo.'),
+  })).describe('Una lista de módulos de aprendizaje disponibles con sus detalles.'),
 });
 export type RecommendLearningModulesInput = z.infer<typeof RecommendLearningModulesInputSchema>;
 
 const RecommendLearningModulesOutputSchema = z.array(z.object({
-  moduleId: z.string().describe('The unique identifier for the recommended module.'),
-  title: z.string().describe('The title of the recommended module.'),
-  description: z.string().describe('A brief description of the recommended module.'),
-  skillCategory: z.string().describe('The skill category the module addresses.'),
-  reason: z.string().describe('The reason why the module is recommended based on the assessment results.'),
+  moduleId: z.string().describe('El identificador único para el módulo recomendado.'),
+  title: z.string().describe('El título del módulo recomendado.'),
+  description: z.string().describe('Una breve descripción del módulo recomendado.'),
+  skillCategory: z.string().describe('La categoría de habilidad que aborda el módulo.'),
+  reason: z.string().describe('La razón por la que se recomienda el módulo en función de los resultados de la evaluación.'),
 }));
 export type RecommendLearningModulesOutput = z.infer<typeof RecommendLearningModulesOutputSchema>;
 
@@ -44,23 +44,23 @@ const prompt = ai.definePrompt({
   output: {
     schema: RecommendLearningModulesOutputSchema,
   },
-  prompt: `Based on the user's skill assessment results, recommend a list of learning modules that will help them improve their skills.
+  prompt: `Basado en los resultados de la evaluación de habilidades del usuario, recomienda una lista de módulos de aprendizaje que le ayudarán a mejorar sus habilidades.
 
-Here are the user's assessment results:
+Estos son los resultados de la evaluación del usuario:
 {{#each assessmentResults}}
   - {{@key}}: {{this}}
 {{/each}}
 
-Here are the available learning modules:
+Estos son los módulos de aprendizaje disponibles:
 {{#each availableModules}}
-  - Module ID: {{this.moduleId}}
-    Title: {{this.title}}
-    Description: {{this.description}}
-    Skill Category: {{this.skillCategory}}
+  - ID del Módulo: {{this.moduleId}}
+    Título: {{this.title}}
+    Descripción: {{this.description}}
+    Categoría de Habilidad: {{this.skillCategory}}
 {{/each}}
 
-Recommend modules that address the user's skill gaps, and explain why each module is recommended. Focus recommendations on the areas where the assessment results are lowest.
-Ensure the recommendations are tailored to the specific assessment results provided.
+Recomienda módulos que aborden las brechas de habilidades del usuario y explica por qué se recomienda cada módulo. Centra las recomendaciones en las áreas donde los resultados de la evaluación son más bajos.
+Asegúrate de que las recomendaciones se adapten a los resultados específicos de la evaluación proporcionados.
 `,
 });
 
@@ -75,3 +75,4 @@ const recommendLearningModulesFlow = ai.defineFlow(
     return output!;
   }
 );
+

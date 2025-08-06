@@ -47,9 +47,9 @@ export default function AssessmentQuiz({ questions, onFinish }: AssessmentQuizPr
         <Card className="w-full max-w-2xl">
             <CardHeader>
                 <Progress value={progress} className="mb-4" />
-                <CardDescription>Question {currentQuestionIndex + 1} of {questions.length}</CardDescription>
+                <CardDescription>Pregunta {currentQuestionIndex + 1} de {questions.length}</CardDescription>
                 <CardTitle className="text-2xl">{currentQuestion.text}</CardTitle>
-                <p className="text-sm text-muted-foreground pt-1">Category: <span className="font-semibold text-primary">{currentQuestion.skillCategory}</span></p>
+                <p className="text-sm text-muted-foreground pt-1">Categoría: <span className="font-semibold text-primary">{currentQuestion.skillCategory}</span></p>
             </CardHeader>
             <CardContent>
                 <RadioGroup 
@@ -71,7 +71,7 @@ export default function AssessmentQuiz({ questions, onFinish }: AssessmentQuizPr
             </CardContent>
             <CardFooter className="flex justify-end">
                 <Button onClick={handleNext} disabled={selectedOption === null} size="lg">
-                    {currentQuestionIndex < questions.length - 1 ? 'Next Question' : 'Finish Assessment'}
+                    {currentQuestionIndex < questions.length - 1 ? 'Siguiente Pregunta' : 'Finalizar Evaluación'}
                     <ArrowRight className="ml-2" />
                 </Button>
             </CardFooter>

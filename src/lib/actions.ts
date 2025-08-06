@@ -21,6 +21,6 @@ export async function getRecommendedModules(assessmentResults: Record<string, nu
         return recommendations;
     } catch (error) {
         console.error("Error getting recommendations:", error);
-        return { error: 'Failed to get recommendations. Please try again later.' };
+        return { error: 'No se pudieron obtener las recomendaciones. Por favor, inténtalo de nuevo más tarde.' };
     }
 }
