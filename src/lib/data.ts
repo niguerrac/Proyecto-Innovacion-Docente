@@ -8,7 +8,12 @@ export interface Module {
   title: string;
   description: string;
   skillCategory: SkillCategory;
-  content: string;
+  content: string | {
+    intro: string;
+    steps?: { title: string; content: string; imageUrl?: string }[];
+    interactive?: { title: string; description: string };
+    keyPoints: string[];
+  };
   imageUrl: string;
   dataAiHint: string;
 }
@@ -41,7 +46,35 @@ export const availableModules: Module[] = [
     title: 'Manejo de Archivos ZIP y RAR',
     description: 'Aprende a comprimir y descomprimir archivos para organizar y compartir tus trabajos universitarios de forma sencilla.',
     skillCategory: 'Gestión de Archivos',
-    content: 'El contenido del módulo va aquí...',
+    content: {
+        intro: 'Los archivos comprimidos (.zip, .rar) son como una maleta para tus archivos digitales. Te permiten agrupar muchos archivos y carpetas en un solo paquete, que ocupa menos espacio y es más fácil de enviar. En este módulo, aprenderás a "hacer la maleta" (comprimir) y "desempacar" (descomprimir).',
+        steps: [
+            {
+                title: '¿Qué es un archivo comprimido?',
+                content: 'Imagina que tienes 10 libros. Llevarlos uno por uno es incómodo. Si los metes en una mochila, es más fácil. Un archivo .zip o .rar es esa mochila. Agrupa tus documentos, imágenes y trabajos en un solo archivo.',
+            },
+            {
+                title: 'Paso 1: Descomprimir un Archivo (Sacar los archivos)',
+                content: 'Cuando recibes un archivo .zip o .rar, necesitas "descomprimirlo". La mayoría de los computadores modernos te permiten hacerlo con un clic derecho. Busca la opción que diga "Extraer todo...", "Extraer aquí" o "Unzip". Al hacerlo, se creará una carpeta normal con todos los archivos que estaban dentro.',
+                imageUrl: '/image/descomprimir.png'
+            },
+            {
+                title: 'Paso 2: Comprimir Archivos (Crear tu propio .zip)',
+                content: 'Para enviar varios archivos a un profesor, selecciónalos todos, haz clic derecho y busca una opción como "Comprimir en archivo ZIP" o "Añadir al archivo...". Esto creará un único archivo .zip con todo lo que seleccionaste, listo para ser enviado por correo.',
+                imageUrl: '/image/comprimir.png'
+            }
+        ],
+        interactive: {
+            title: 'Descomprimir el Archivo',
+            description: 'Imagina que "trabajo_final.zip" es un archivo que has descargado. El objetivo es extraer su contenido en una carpeta normal. Haz clic en el botón para simular este proceso.'
+        },
+        keyPoints: [
+            'Comprimir agrupa muchos archivos en uno solo y reduce su tamaño.',
+            'Descomprimir (o extraer) saca los archivos de la "maleta" comprimida.',
+            'Usa clic derecho para encontrar las opciones de "Comprimir" y "Extraer".',
+            'Enviar un solo archivo .zip es más ordenado y rápido que enviar muchos archivos sueltos.'
+        ]
+    },
     imageUrl: '/image/archivos_rar.png',
     dataAiHint: 'file folders'
   },
@@ -87,7 +120,7 @@ export const availableModules: Module[] = [
     description: 'Conceptos básicos para encontrar archivos, usar carpetas y moverte con fluidez en tu sistema operativo.',
     skillCategory: 'Navegación Básica',
     content: 'El contenido del módulo va aquí...',
-    imageUrl: '/image/wetransfer.png',
+    imageUrl: '/image/navegacion.png',
     dataAiHint: 'computer desktop'
   },
   {

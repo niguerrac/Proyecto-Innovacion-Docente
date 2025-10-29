@@ -58,7 +58,7 @@ export default function ModulesPage() {
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {filteredModules.map((module: Module) => (
-          <Link href="#" key={module.moduleId}>
+          <Link href={`/modules/${module.moduleId}`} key={module.moduleId}>
             <Card className="overflow-hidden transition-transform hover:scale-105 hover:shadow-xl h-full flex flex-col">
               <Image src={module.imageUrl} alt={module.title} width={600} height={400} className="w-full h-48 object-cover" data-ai-hint={module.dataAiHint} />
               <CardHeader>
