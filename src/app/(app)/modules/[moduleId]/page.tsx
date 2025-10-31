@@ -14,6 +14,8 @@ export default function ModulePage({ params }: { params: { moduleId: string } })
     notFound();
   }
 
+  const hasStructuredContent = typeof module.content === 'object';
+
   return (
     <div className="max-w-4xl mx-auto space-y-8">
       <div className="relative w-full h-64 rounded-lg overflow-hidden">
@@ -26,29 +28,27 @@ export default function ModulePage({ params }: { params: { moduleId: string } })
         </div>
       </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>¿Qué aprenderás en este módulo?</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p className="text-muted-foreground">
-            {/* @ts-ignore */}
-            {module.content.intro}
-          </p>
-        </CardContent>
-      </Card>
+      {hasStructuredContent && module.content.intro && (
+        <Card>
+          <CardHeader>
+            <CardTitle>¿Qué aprenderás en este módulo?</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-muted-foreground">
+              {module.content.intro}
+            </p>
+          </CardContent>
+        </Card>
+      )}
       
-      {/* @ts-ignore */}
-      {module.content.steps && (
+      {hasStructuredContent && module.content.steps && (
         <Card>
           <CardHeader>
             <CardTitle>Guía Paso a Paso</CardTitle>
             <CardDescription>Sigue estas instrucciones para dominar el manejo de archivos comprimidos.</CardDescription>
           </CardHeader>
           <CardContent>
-            {/* @ts-ignore */}
             <Accordion type="single" collapsible className="w-full">
-              {/* @ts-ignore */}
               {module.content.steps.map((step, index) => (
                 <AccordionItem value={`item-${index}`} key={index}>
                   <AccordionTrigger className="text-lg font-semibold">{step.title}</AccordionTrigger>
@@ -67,12 +67,11 @@ export default function ModulePage({ params }: { params: { moduleId: string } })
         </Card>
       )}
 
-      {/* @ts-ignore */}
-      {module.content.interactive && (
+      {hasStructuredContent && module.content.interactive && (
          <Card className="bg-accent/30 border-accent">
           <CardHeader>
             <CardTitle>¡Ponlo en Práctica!</CardTitle>
-            <CardDescription>{/* @ts-ignore */}{module.content.interactive.title}</CardDescription>
+            <CardDescription>{module.content.interactive.title}</CardDescription>
           </CardHeader>
           <CardContent className="text-center">
             <div className="flex justify-around items-center p-8 bg-background rounded-lg">
@@ -86,29 +85,40 @@ export default function ModulePage({ params }: { params: { moduleId: string } })
                     <p className="mt-2 font-semibold">Carpeta de Trabajo</p>
                 </div>
             </div>
-            {/* @ts-ignore */}
             <p className="mt-4 text-muted-foreground">{module.content.interactive.description}</p>
             <Button size="lg" className="mt-4">Simular Descompresión</Button>
           </CardContent>
         </Card>
       )}
 
-      <Card>
-        <CardHeader>
-            <CardTitle>Puntos Clave</CardTitle>
-        </CardHeader>
-        <CardContent>
-            <ul className="space-y-3">
-                {/* @ts-ignore */}
-                {module.content.keyPoints.map((point, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-muted-foreground">{point}</span>
-                    </li>
-                ))}
-            </ul>
-        </CardContent>
-      </Card>
+      {hasStructuredContent && module.content.keyPoints && (
+        <Card>
+            <CardHeader>
+                <CardTitle>Puntos Clave</CardTitle>
+            </CardHeader>
+            <CardContent>
+                <ul className="space-y-3">
+                    {module.content.keyPoints.map((point, index) => (
+                        <li key={index} className="flex items-start gap-3">
+                            <Check className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
+                            <span className="text-muted-foreground">{point}</span>
+                        </li>
+                    ))}
+                </ul>
+            </CardContent>
+        </Card>
+      )}
+
+      {!hasStructuredContent && (
+        <Card>
+            <CardHeader>
+                <CardTitle>Contenido del Módulo</CardTitle>
+            </CardHeader>
+            <CardContent>
+                <p className="text-muted-foreground">{module.content}</p>
+            </CardContent>
+        </Card>
+      )}
       
       <div className="text-center py-6">
         <Button size="lg" asChild>
