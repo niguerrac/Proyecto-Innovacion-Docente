@@ -56,12 +56,12 @@ export const availableModules: Module[] = [
             {
                 title: 'Paso 1: Descomprimir un Archivo (Sacar los archivos)',
                 content: 'Cuando recibes un archivo .zip o .rar, necesitas "descomprimirlo". La mayoría de los computadores modernos te permiten hacerlo con un clic derecho. Busca la opción que diga "Extraer todo...", "Extraer aquí" o "Unzip". Al hacerlo, se creará una carpeta normal con todos los archivos que estaban dentro.',
-                imageUrl: '/image/descomprimir.png'
+                imageUrl: '/image/modulo_archivosZip/unzip.png'
             },
             {
                 title: 'Paso 2: Comprimir Archivos (Crear tu propio .zip)',
                 content: 'Para enviar varios archivos a un profesor, selecciónalos todos, haz clic derecho y busca una opción como "Comprimir en archivo ZIP" o "Añadir al archivo...". Esto creará un único archivo .zip con todo lo que seleccionaste, listo para ser enviado por correo.',
-                imageUrl: '/image/comprimir.png'
+                imageUrl: '/image/modulo_archivosZip/zip.png'
             }
         ],
         interactive: {
