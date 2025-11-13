@@ -12,7 +12,7 @@ export default function Home() {
         <div className="container flex h-14 items-center">
           <Link href="/" className="mr-6 flex items-center space-x-2">
             <Logo className="h-6 w-6" />
-            <span className="font-bold">Tikap Skills</span>
+            <span className="font-bold">MICRO-CÁPSULAS DE APRENDIZAJE</span>
           </Link>
           <div className="flex flex-1 items-center justify-end space-x-4">
             <nav className="flex items-center space-x-2">
@@ -39,7 +39,7 @@ export default function Home() {
           </div>
           <div className="mx-auto flex w-full max-w-sm items-center justify-center space-x-4">
             <Button asChild size="lg">
-              <Link href="/assessment">Comienza tu Evaluación Gratuita</Link>
+              <Link href="/assessment">Comienza tu Evaluación</Link>
             </Button>
           </div>
         </section>
