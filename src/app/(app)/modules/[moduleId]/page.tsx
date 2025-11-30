@@ -7,7 +7,7 @@ import Image from 'next/image';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Check, FileArchive, FolderOpen, ArrowRight, Download, Upload } from 'lucide-react';
+import { Check, ArrowRight, Download, Upload } from 'lucide-react';
 import Link from 'next/link';
 import { useState, useRef } from 'react';
 import { useToast } from '@/hooks/use-toast';
