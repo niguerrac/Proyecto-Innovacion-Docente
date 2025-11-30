@@ -1,20 +1,54 @@
+
+'use client';
+
 import { availableModules } from '@/lib/data';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Check, FileArchive, FolderOpen, ArrowRight } from 'lucide-react';
+import { Check, FileArchive, FolderOpen, ArrowRight, Download, Upload } from 'lucide-react';
 import Link from 'next/link';
+import { useState, useRef } from 'react';
+import { useToast } from '@/hooks/use-toast';
 
 export default function ModulePage({ params }: { params: { moduleId: string } }) {
   const module = availableModules.find(m => m.moduleId === params.moduleId);
+  const [downloaded, setDownloaded] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const { toast } = useToast();
 
   if (!module) {
     notFound();
   }
 
   const hasStructuredContent = typeof module.content === 'object';
+  
+  const handleDownload = () => {
+    setDownloaded(true);
+  };
+
+  const handleUploadClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      if (file.name.endsWith('.zip')) {
+        toast({
+            title: '¡Archivo Subido!',
+            description: '¡Excelente trabajo! Has completado la práctica.',
+        });
+      } else {
+        toast({
+            variant: 'destructive',
+            title: 'Error de archivo',
+            description: 'Por favor, sube un archivo con formato .zip.',
+        });
+      }
+    }
+  };
 
   return (
     <div className="max-w-4xl mx-auto space-y-8">
@@ -74,19 +108,30 @@ export default function ModulePage({ params }: { params: { moduleId: string } })
             <CardDescription>{module.content.interactive.title}</CardDescription>
           </CardHeader>
           <CardContent className="text-center">
-            <div className="flex justify-around items-center p-8 bg-background rounded-lg">
-                <div>
-                    <FileArchive className="h-24 w-24 text-primary mx-auto" />
-                    <p className="mt-2 font-semibold">trabajo_final.zip</p>
-                </div>
-                <ArrowRight className="h-12 w-12 text-muted-foreground" />
-                <div>
-                    <FolderOpen className="h-24 w-24 text-green-500 mx-auto" />
-                    <p className="mt-2 font-semibold">Carpeta de Trabajo</p>
-                </div>
+            <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">{module.content.interactive.description}</p>
+            <div className="flex justify-center items-center p-8 gap-8">
+                <Button asChild size="lg" onClick={handleDownload}>
+                    <a href="/recursos/Trabajo.zip" download>
+                        <Download className="mr-2"/>
+                        Descarga tu Archivo de trabajo
+                    </a>
+                </Button>
+                {downloaded && (
+                    <>
+                        <Button size="lg" variant="outline" onClick={handleUploadClick}>
+                            <Upload className="mr-2"/>
+                            Sube tu archivo modificado
+                        </Button>
+                        <input 
+                            type="file" 
+                            ref={fileInputRef} 
+                            onChange={handleFileChange}
+                            accept=".zip"
+                            className="hidden" 
+                        />
+                    </>
+                )}
             </div>
-            <p className="mt-4 text-muted-foreground">{module.content.interactive.description}</p>
-            <Button size="lg" className="mt-4">Simular Descompresión</Button>
           </CardContent>
         </Card>
       )}
@@ -109,11 +154,11 @@ export default function ModulePage({ params }: { params: { moduleId: string } })
         </Card>
       )}
 
-      {!hasStructuredContent && (
+      {!hasStructuredContent && typeof module.content === 'string' && (
         <Card>
             <CardHeader>
                 <CardTitle>Contenido del Módulo</CardTitle>
-            </CardHeader>
+            </Header>
             <CardContent>
                 <p className="text-muted-foreground">{module.content}</p>
             </CardContent>

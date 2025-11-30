@@ -65,8 +65,8 @@ export const availableModules: Module[] = [
             }
         ],
         interactive: {
-            title: 'Descomprimir el Archivo',
-            description: 'Imagina que "trabajo_final.zip" es un archivo que has descargado. El objetivo es extraer su contenido en una carpeta normal. Haz clic en el botón para simular este proceso.'
+            title: 'Descomprimir y Comprimir un Archivo',
+            description: '¡Es hora de practicar! Descarga el archivo de trabajo, descomprímelo, cambia el nombre del documento que encontrarás dentro y, finalmente, vuelve a comprimir la carpeta en formato .zip para subirla.'
         },
         keyPoints: [
             'Comprimir agrupa muchos archivos en uno solo y reduce su tamaño.',
