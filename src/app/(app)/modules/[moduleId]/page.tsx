@@ -22,8 +22,6 @@ export default function ModulePage({ params }: { params: { moduleId: string } })
     notFound();
   }
 
-  const hasStructuredContent = typeof module.content === 'object';
-  
   const handleDownload = () => {
     setDownloaded(true);
   };
@@ -49,6 +47,8 @@ export default function ModulePage({ params }: { params: { moduleId: string } })
       }
     }
   };
+
+  const hasStructuredContent = typeof module.content === 'object' && module.content !== null;
 
   return (
     <div className="max-w-4xl mx-auto space-y-8">
