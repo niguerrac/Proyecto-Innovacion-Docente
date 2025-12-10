@@ -35,14 +35,14 @@ export default function ModulePage({ params }: { params: { moduleId: string } })
     if (file) {
       if (file.name.endsWith('.zip')) {
         toast({
-            title: '¡Archivo Subido!',
-            description: '¡Excelente trabajo! Has completado la práctica.',
+          title: '¡Archivo Subido!',
+          description: '¡Excelente trabajo! Has completado la práctica.',
         });
       } else {
         toast({
-            variant: 'destructive',
-            title: 'Error de archivo',
-            description: 'Por favor, sube un archivo con formato .zip.',
+          variant: 'destructive',
+          title: 'Error de archivo',
+          description: 'Por favor, sube un archivo con formato .zip.',
         });
       }
     }
@@ -74,7 +74,7 @@ export default function ModulePage({ params }: { params: { moduleId: string } })
           </CardContent>
         </Card>
       )}
-      
+
       {hasStructuredContent && module.content.steps && (
         <Card>
           <CardHeader>
@@ -102,7 +102,7 @@ export default function ModulePage({ params }: { params: { moduleId: string } })
       )}
 
       {hasStructuredContent && module.content.interactive && (
-         <Card className="bg-accent/30 border-accent">
+        <Card className="bg-accent/30 border-accent">
           <CardHeader>
             <CardTitle>¡Ponlo en Práctica!</CardTitle>
             <CardDescription>{module.content.interactive.title}</CardDescription>
@@ -110,27 +110,27 @@ export default function ModulePage({ params }: { params: { moduleId: string } })
           <CardContent className="text-center">
             <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">{module.content.interactive.description}</p>
             <div className="flex justify-center items-center p-8 gap-8">
-                <Button asChild size="lg" onClick={handleDownload}>
-                    <a href="/recursos/Trabajo.zip" download>
-                        <Download className="mr-2"/>
-                        Descarga tu Archivo de trabajo
-                    </a>
-                </Button>
-                {downloaded && (
-                    <>
-                        <Button size="lg" variant="outline" onClick={handleUploadClick}>
-                            <Upload className="mr-2"/>
-                            Sube tu archivo modificado
-                        </Button>
-                        <input 
-                            type="file" 
-                            ref={fileInputRef} 
-                            onChange={handleFileChange}
-                            accept=".zip"
-                            className="hidden" 
-                        />
-                    </>
-                )}
+              <Button asChild size="lg" onClick={handleDownload}>
+                <a href="/recursos/Trabajo.zip" download>
+                  <Download className="mr-2" />
+                  Descarga tu Archivo de trabajo
+                </a>
+              </Button>
+              {downloaded && (
+                <>
+                  <Button size="lg" variant="outline" onClick={handleUploadClick}>
+                    <Upload className="mr-2" />
+                    Sube tu archivo modificado
+                  </Button>
+                  <input
+                    type="file"
+                    ref={fileInputRef}
+                    onChange={handleFileChange}
+                    accept=".zip"
+                    className="hidden"
+                  />
+                </>
+              )}
             </div>
           </CardContent>
         </Card>
@@ -138,33 +138,33 @@ export default function ModulePage({ params }: { params: { moduleId: string } })
 
       {hasStructuredContent && module.content.keyPoints && (
         <Card>
-            <CardHeader>
-                <CardTitle>Puntos Clave</CardTitle>
-            </CardHeader>
-            <CardContent>
-                <ul className="space-y-3">
-                    {module.content.keyPoints.map((point, index) => (
-                        <li key={index} className="flex items-start gap-3">
-                            <Check className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                            <span className="text-muted-foreground">{point}</span>
-                        </li>
-                    ))}
-                </ul>
-            </CardContent>
+          <CardHeader>
+            <CardTitle>Puntos Clave</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ul className="space-y-3">
+              {module.content.keyPoints.map((point, index) => (
+                <li key={index} className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">{point}</span>
+                </li>
+              ))}
+            </ul>
+          </CardContent>
         </Card>
       )}
 
       {!hasStructuredContent && typeof module.content === 'string' && (
         <Card>
-            <CardHeader>
-                <CardTitle>Contenido del Módulo</CardTitle>
-            </Header>
-            <CardContent>
-                <p className="text-muted-foreground">{module.content}</p>
-            </CardContent>
+          <CardHeader>
+            <CardTitle>Contenido del Módulo</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-muted-foreground">{module.content}</p>
+          </CardContent>
         </Card>
       )}
-      
+
       <div className="text-center py-6">
         <Button size="lg" asChild>
           <Link href="/modules">
