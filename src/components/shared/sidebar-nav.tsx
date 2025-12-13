@@ -17,6 +17,7 @@ import {
   Library,
   LogOut,
   Settings,
+  MessageSquare,
 } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -27,6 +28,7 @@ const menuItems = [
   { href: '/dashboard', label: 'Panel', icon: LayoutDashboard },
   { href: '/assessment', label: 'Evaluación', icon: ClipboardCheck },
   { href: '/modules', label: 'Módulos', icon: Library },
+  { href: '/feedback', label: 'Feedback', icon: MessageSquare },
 ];
 
 export function SidebarNav() {
@@ -62,33 +64,33 @@ export function SidebarNav() {
       <SidebarFooter className="p-2">
         <Separator className="my-2" />
         <SidebarMenu>
-           <SidebarMenuItem>
-              <SidebarMenuButton asChild tooltip="Configuración">
-                <Link href="#">
-                  <Settings />
-                  <span>Configuración</span>
-                </Link>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-            <SidebarMenuItem>
-              <SidebarMenuButton asChild tooltip="Cerrar Sesión">
-                <Link href="/">
-                  <LogOut />
-                  <span>Cerrar Sesión</span>
-                </Link>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton asChild tooltip="Configuración">
+              <Link href="#">
+                <Settings />
+                <span>Configuración</span>
+              </Link>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton asChild tooltip="Cerrar Sesión">
+              <Link href="/">
+                <LogOut />
+                <span>Cerrar Sesión</span>
+              </Link>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
         </SidebarMenu>
         <Separator className="my-2" />
         <div className="flex items-center gap-3 p-2">
-           <Avatar>
-              <AvatarImage src="https://placehold.co/40x40.png" alt="@shadcn" />
-              <AvatarFallback>U</AvatarFallback>
-            </Avatar>
-            <div className="flex flex-col">
-                <span className="font-semibold text-sm">Usuario</span>
-                <span className="text-xs text-muted-foreground">usuario@email.com</span>
-            </div>
+          <Avatar>
+            <AvatarImage src="https://placehold.co/40x40.png" alt="@shadcn" />
+            <AvatarFallback>U</AvatarFallback>
+          </Avatar>
+          <div className="flex flex-col">
+            <span className="font-semibold text-sm">Usuario</span>
+            <span className="text-xs text-muted-foreground">usuario@email.com</span>
+          </div>
         </div>
       </SidebarFooter>
     </Sidebar>
