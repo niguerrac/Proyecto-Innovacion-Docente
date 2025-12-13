@@ -199,7 +199,48 @@ export const availableModules: Module[] = [
     title: 'WeTransfer: Envía Archivos Grandes',
     description: 'Aprende a utilizar servicios como WeTransfer para compartir presentaciones y videos pesados sin problemas.',
     skillCategory: 'Colaboración en Línea',
-    content: 'El contenido del módulo va aquí...',
+    marketingData: {
+      heroTitle: 'WeTransfer Rápido y Fácil',
+      heroSubtitle: 'La solución definitiva para enviar archivos de hasta 2 GB gratis.',
+      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Placeholder video
+      stepsTitle: 'Guía: Compártelo en 4 Pasos'
+    },
+    content: {
+      objectives: [
+        'Enviar archivos de más de 25 MB (superando el límite del correo).',
+        'Usar WeTransfer Free sin necesidad de registros complejos.',
+        'Generar enlaces de descarga para compartir por cualquier medio.'
+      ],
+      steps: [
+        {
+          title: 'A. Introducción: ¿Por qué WeTransfer?',
+          content: 'La mayoría de los correos limitan los adjuntos a 25 MB. WeTransfer te permite enviar hasta 2 GB gratis. ¡Es la herramienta ideal para videos y presentaciones pesadas!'
+        },
+        {
+          title: 'B. Acceso y Subida',
+          content: 'Ve a wetransfer.com. Acepta las cookies si es necesario. Haz clic en el botón azul "+" o "Subir archivos" y selecciona tus documentos. Puedes subir varios a la vez.'
+        },
+        {
+          title: 'C. Configuración: ¿Email o Enlace?',
+          content: 'Tienes dos opciones: 1. Enviar email (pones tu correo y el del destinatario). 2. Obtener enlace (clic en "..." y selecciona "Conseguir enlace de transferencia"). Esta última es mejor para WhatsApp.'
+        },
+        {
+          title: 'D. Subida y Aviso Importante',
+          content: 'Espera a que la bolita de progreso llegue al 100%. Importante: Los archivos solo duran 7 días en la versión gratuita. ¡Avisa a tus contactos que los descarguen pronto!'
+        }
+      ],
+      interactive: {
+        title: '¡Tu Primera Gran Transferencia!',
+        description: 'Prueba enviar un archivo pesado ahora mismo.',
+        activityBrief: 'Sube un archivo (o carpeta .zip) de más de 10 MB y genera un enlace de descarga.',
+        checklist: [
+          'He comprimido mis archivos en un ZIP (opcional pero recomendado)',
+          'He subido el archivo a WeTransfer',
+          'He seleccionado la opción "Conseguir enlace de transferencia"',
+          'He probado el enlace en una nueva pestaña para verificar la descarga'
+        ]
+      }
+    },
     imageUrl: '/image/wetransfer.png',
     dataAiHint: 'cloud upload'
   },
