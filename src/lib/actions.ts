@@ -6,6 +6,11 @@ import { sleep } from './utils';
 
 export async function getRecommendedModules(assessmentResults: Record<string, number>) {
     try {
+        if (!process.env.GOOGLE_GENAI_API_KEY) {
+            console.error("GOOGLE_GENAI_API_KEY no está definida");
+            return { error: "Configuration Error: Falta la API Key. Asegúrate de haber reiniciado el servidor luego de crear el archivo .env.local." };
+        }
+
         const input: RecommendLearningModulesInput = {
             assessmentResults,
             availableModules: availableModules.map(({ moduleId, title, description, skillCategory }) => ({
@@ -15,12 +20,12 @@ export async function getRecommendedModules(assessmentResults: Record<string, nu
                 skillCategory
             }))
         };
-        // Simulate network delay for better UX on loading states
-        await sleep(1500); 
+
         const recommendations = await recommendLearningModules(input);
         return recommendations;
     } catch (error) {
         console.error("Error getting recommendations:", error);
-        return { error: 'No se pudieron obtener las recomendaciones. Por favor, inténtalo de nuevo más tarde.' };
+        const errorMessage = error instanceof Error ? error.message : String(error);
+        return { error: `Error obteniendo recomendaciones: ${errorMessage}` };
     }
 }
