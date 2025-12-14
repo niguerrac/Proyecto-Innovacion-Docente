@@ -6,6 +6,8 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { availableModules } from '@/lib/data';
 import { CheckCircle2, MessageSquare } from 'lucide-react';
@@ -122,14 +124,33 @@ export default function FeedbackPage() {
                             </div>
                         </div>
 
-                        {/* Pregunta 4: Lo que más gustó */}
                         <div className="space-y-4 p-4 rounded-lg bg-muted/40">
-                            <Label className="text-base font-semibold" htmlFor="liked">4. ¿Qué fue lo que más te gustó de la plataforma?</Label>
-                            <Textarea
-                                id="liked"
-                                placeholder="Ej: Las actividades interactivas, los videos, la facilidad de uso..."
-                                className="mt-2 bg-background"
-                            />
+                            <Label className="text-base font-semibold">4. ¿Qué fue lo que más te gustó de la plataforma? (Selecciona todas las que apliquen)</Label>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                                <div className="flex items-center space-x-2 border p-3 rounded-md hover:bg-accent transition-colors">
+                                    <Checkbox id="c4-diseno" />
+                                    <Label htmlFor="c4-diseno" className="flex-1 cursor-pointer">El diseño y la interfaz</Label>
+                                </div>
+                                <div className="flex items-center space-x-2 border p-3 rounded-md hover:bg-accent transition-colors">
+                                    <Checkbox id="c4-contenidos" />
+                                    <Label htmlFor="c4-contenidos" className="flex-1 cursor-pointer">La calidad de los contenidos</Label>
+                                </div>
+                                <div className="flex items-center space-x-2 border p-3 rounded-md hover:bg-accent transition-colors">
+                                    <Checkbox id="c4-navegacion" />
+                                    <Label htmlFor="c4-navegacion" className="flex-1 cursor-pointer">La facilidad de navegación</Label>
+                                </div>
+                                <div className="flex items-center space-x-2 border p-3 rounded-md hover:bg-accent transition-colors">
+                                    <Checkbox id="c4-funcionamiento" />
+                                    <Label htmlFor="c4-funcionamiento" className="flex-1 cursor-pointer">La velocidad y funcionamiento</Label>
+                                </div>
+                                <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-2 border p-3 rounded-md hover:bg-accent transition-colors sm:col-span-2">
+                                    <div className="flex items-center space-x-2">
+                                        <Checkbox id="c4-otros" />
+                                        <Label htmlFor="c4-otros" className="cursor-pointer whitespace-nowrap">Otro:</Label>
+                                    </div>
+                                    <Input className="h-8 flex-1" placeholder="Especifique..." />
+                                </div>
+                            </div>
                         </div>
 
                         {/* Pregunta 5: Comentarios */}
