@@ -57,7 +57,7 @@ export default function ModulePage({ params }: { params: { moduleId: string } })
     <div className="max-w-4xl mx-auto space-y-8">
       {/* Hero Section */}
       <div className="relative w-full rounded-lg overflow-hidden bg-card border shadow-sm">
-        {!marketing?.videoUrl && (
+        {!marketing && (
           <div className="relative h-64 w-full">
             <Image src={module.imageUrl} alt={module.title} fill style={{ objectFit: 'cover' }} data-ai-hint={module.dataAiHint} />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
@@ -65,24 +65,27 @@ export default function ModulePage({ params }: { params: { moduleId: string } })
         )}
 
         <div className="p-6 md:p-8">
-          {marketing?.videoUrl ? (
+          {marketing ? (
             <div className="grid md:grid-cols-1 gap-6">
               <div>
                 <p className="text-sm font-semibold text-primary mb-2 uppercase tracking-wide">{module.skillCategory}</p>
                 <h1 className="text-3xl md:text-4xl font-extrabold mb-4">{heroTitle}</h1>
                 <p className="text-lg text-muted-foreground mb-6">{heroDescription}</p>
               </div>
-              <div className="aspect-video w-full rounded-md overflow-hidden bg-black/10">
-                {/* Simple iframe for demo purposes. In production, use a proper video component */}
-                <iframe
-                  width="100%"
-                  height="100%"
-                  src={marketing.videoUrl}
-                  title="Video de la micro-cápsula"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
+              <div className="aspect-video w-full rounded-md overflow-hidden bg-black/10 relative">
+                {marketing.videoUrl ? (
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src={marketing.videoUrl}
+                    title="Video de la micro-cápsula"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                ) : (
+                  <Image src={module.imageUrl} alt={module.title} fill style={{ objectFit: 'cover' }} />
+                )}
               </div>
             </div>
           ) : (

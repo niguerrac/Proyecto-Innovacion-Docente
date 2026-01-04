@@ -100,7 +100,7 @@ export const availableModules: Module[] = [
     marketingData: {
       heroTitle: 'Word a PDF en 60 Segundos',
       heroSubtitle: 'Métodos rápidos para asegurar la integridad y el formato de los documentos.',
-      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Placeholder video
+      videoUrl: 'https://www.youtube.com/embed/0-Qg3DFtYw8?si=--lKrSpQyCUmwz4j', // 
       stepsTitle: 'Guía: De Word a PDF paso a paso'
     },
     content: {
@@ -152,9 +152,8 @@ export const availableModules: Module[] = [
     description: 'Aprende a escribir correos efectivos, evitar el phishing y organizar tu bandeja de entrada en minutos.',
     skillCategory: 'Comunicación Digital',
     marketingData: {
-      heroTitle: '⏱️ Domina tu Bandeja de Entrada en Menos de 10 Minutos',
+      heroTitle: 'Domina tu Bandeja de Entrada',
       heroSubtitle: 'Las 3 Reglas de Oro para un correo profesional, conciso y seguro.',
-      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Placeholder video
       stepsTitle: '🗝️ Las 3 Reglas del Correo Eficiente'
     },
     content: {
@@ -202,7 +201,7 @@ export const availableModules: Module[] = [
     marketingData: {
       heroTitle: 'WeTransfer Rápido y Fácil',
       heroSubtitle: 'La solución definitiva para enviar archivos de hasta 2 GB gratis.',
-      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Placeholder video
+      videoUrl: 'https://www.youtube.com/embed/NIihysCnrQQ?si=2TCjk2J9tnTWwbdi',
       stepsTitle: 'Guía: Compártelo en 4 Pasos'
     },
     content: {
@@ -252,7 +251,7 @@ export const availableModules: Module[] = [
     marketingData: {
       heroTitle: 'Introducción a la IA Generativa',
       heroSubtitle: 'Uso práctico y rápido de ChatGPT y Gemini para productividad.',
-      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Placeholder video for screencast comparison
+      videoUrl: '',
       stepsTitle: 'Guía práctica: Del Prompt al Resultado'
     },
     content: {
