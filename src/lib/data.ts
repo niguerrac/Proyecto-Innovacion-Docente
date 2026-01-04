@@ -303,24 +303,7 @@ export const availableModules: Module[] = [
     dataAiHint: 'robot brain'
   },
 
-  {
-    moduleId: 'productivity002',
-    title: 'Primeros Pasos con Hojas de Cálculo',
-    description: 'Aprende a crear tablas, usar fórmulas básicas y generar gráficos para organizar y presentar datos.',
-    skillCategory: 'Herramientas de Productividad',
-    content: 'El contenido del módulo va aquí...',
-    imageUrl: '/image/hojaCalculo.jpg',
-    dataAiHint: 'spreadsheet data'
-  },
-  {
-    moduleId: 'comms002',
-    title: 'Etiqueta en la Comunicación Online',
-    description: 'Aprende las normas básicas de cortesía y profesionalismo en correos, foros y chats académicos.',
-    skillCategory: 'Comunicación Digital',
-    content: 'El contenido del módulo va aquí...',
-    imageUrl: '/image/modulo_Corre.png',
-    dataAiHint: 'online chat'
-  },
+
   {
     moduleId: 'security001',
     title: 'Protege tus Cuentas: Contraseñas y MFA',

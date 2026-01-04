@@ -61,6 +61,11 @@ export default function FeedbackPage() {
                         </CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-8">
+                        {/* Campo Nombre */}
+                        <div className="space-y-4 p-4 rounded-lg bg-muted/40">
+                            <Label className="text-base font-semibold" htmlFor="userName">Nombre Completo</Label>
+                            <Input id="userName" placeholder="Ingresa tu nombre..." className="bg-background" required />
+                        </div>
 
                         {/* Pregunta 1: Uso de la aplicación */}
                         <div className="space-y-4 p-4 rounded-lg bg-muted/40">
