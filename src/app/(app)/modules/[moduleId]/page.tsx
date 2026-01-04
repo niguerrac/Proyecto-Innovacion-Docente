@@ -102,7 +102,7 @@ export default function ModulePage({ params }: { params: { moduleId: string } })
       {content?.objectives && (
         <Card className="bg-primary/5 border-primary/20">
           <CardHeader>
-            <CardTitle className="text-2xl">Deja de perder tiempo: Lo que aprenderás inmediatamente</CardTitle>
+            <CardTitle className="text-2xl">Lo que aprenderás inmediatamente</CardTitle>
           </CardHeader>
           <CardContent>
             <ul className="grid gap-3">

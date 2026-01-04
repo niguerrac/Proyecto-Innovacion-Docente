@@ -1,7 +1,7 @@
 import type { LucideIcon } from 'lucide-react';
-import { HardDrive, Mail, FileText, Share2, BrainCircuit, Computer } from 'lucide-react';
+import { HardDrive, Mail, FileText, Share2, BrainCircuit, Computer, Shield } from 'lucide-react';
 
-export type SkillCategory = 'Gestión de Archivos' | 'Comunicación Digital' | 'Herramientas de Productividad' | 'Colaboración en Línea' | 'Inteligencia Artificial' | 'Navegación Básica';
+export type SkillCategory = 'Gestión de Archivos' | 'Comunicación Digital' | 'Herramientas de Productividad' | 'Colaboración en Línea' | 'Inteligencia Artificial' | 'Navegación Básica' | 'Seguridad Digital';
 
 export interface Module {
   moduleId: string;
@@ -51,6 +51,7 @@ export const skillCategories: { name: SkillCategory; icon: LucideIcon }[] = [
   { name: 'Colaboración en Línea', icon: Share2 },
   { name: 'Inteligencia Artificial', icon: BrainCircuit },
   { name: 'Navegación Básica', icon: Computer },
+  { name: 'Seguridad Digital', icon: Shield },
 ];
 
 
@@ -301,15 +302,7 @@ export const availableModules: Module[] = [
     imageUrl: '/image/Gpt.png',
     dataAiHint: 'robot brain'
   },
-  {
-    moduleId: 'nav001',
-    title: 'Navegación Eficaz en el Computador',
-    description: 'Conceptos básicos para encontrar archivos, usar carpetas y moverte con fluidez en tu sistema operativo.',
-    skillCategory: 'Navegación Básica',
-    content: 'El contenido del módulo va aquí...',
-    imageUrl: '/image/navegacion.png',
-    dataAiHint: 'computer desktop'
-  },
+
   {
     moduleId: 'productivity002',
     title: 'Primeros Pasos con Hojas de Cálculo',
@@ -327,6 +320,189 @@ export const availableModules: Module[] = [
     content: 'El contenido del módulo va aquí...',
     imageUrl: '/image/modulo_Corre.png',
     dataAiHint: 'online chat'
+  },
+  {
+    moduleId: 'security001',
+    title: 'Protege tus Cuentas: Contraseñas y MFA',
+    description: 'No dejes que hackeen tu vida digital. Aprende a crear contraseñas seguras y a usar la verificación en dos pasos.',
+    skillCategory: 'Seguridad Digital',
+    content: {
+      intro: 'La seguridad digital no es solo para expertos. En este módulo aprenderás a cerrar las puertas digitales a los atacantes usando contraseñas robustas y la autenticación de dos factores.',
+      objectives: [
+        'Crear contraseñas imposibles de adivinar pero fáciles de recordar.',
+        'Activar la verificación en dos pasos (MFA) en tus cuentas clave.',
+        'Entender por qué "123456" es una invitación al desastre.'
+      ],
+      steps: [
+        {
+          title: 'Paso 1: La Frase de Paso',
+          content: 'Olvida las contraseñas cortas y complejas como "P@$$w0rd". Usa una "Frase de Paso": 4 palabras aleatorias unidas. \n\nEjemplo: "CaballoBateríaGrapaCorrecto". Son más largas (difíciles para una máquina) pero fáciles de recordar para ti.',
+        },
+        {
+          title: 'Paso 2: ¿Qué es MFA?',
+          content: 'MFA (Multi-Factor Authentication) es como tener dos cerraduras en tu puerta. Además de tu contraseña (algo que sabes), necesitas un código en tu celular (algo que tienes). \n\nActívalo siempre en tu correo y redes sociales.',
+        },
+        {
+          title: 'Paso 3: Gestores de Contraseñas',
+          content: 'No uses la misma contraseña en todos lados. Usa un gestor (como el de Google o Bitwarden) para que recuerde las contraseñas complejas por ti.',
+        }
+      ],
+      interactive: {
+        title: 'Auditoría de Seguridad Express',
+        description: 'Revisa la seguridad de tu cuenta principal ahora mismo.',
+        activityBrief: 'Chequea los siguientes pasos. Piensa en una nueva "Frase de Paso" y verifica si tienes MFA activado en tu correo personal.',
+        checklist: [
+          'He creado una frase de paso de al menos 4 palabras',
+          'He verificado si mi correo tiene la verificación en 2 pasos activada',
+          'He comprobado que no uso la misma contraseña para el banco y para redes sociales'
+        ]
+      },
+      keyPoints: [
+        'La técnica de la "Frase de paso" (más fácil de recordar, más difícil de hackear).',
+        'MFA es tu mejor defensa: actívalo hoy.',
+        'Nunca compartas tus códigos de verificación con nadie.'
+      ]
+    },
+    imageUrl: '/image/security.png',
+    dataAiHint: 'shield lock'
+  },
+  {
+    moduleId: 'cloud001',
+    title: 'Google Drive y OneDrive: Tu Mochila en la Nube',
+    description: 'Deja de usar pendrives. Aprende a subir, organizar y compartir carpetas desde la nube para no perder nunca un trabajo.',
+    skillCategory: 'Gestión de Archivos',
+    content: {
+      intro: 'Tener tus archivos en la nube significa que puedes acceder a ellos desde cualquier lugar, ya sea en la universidad, en casa o desde el celular. Nunca más olvidarás tu trabajo.',
+      objectives: [
+        'Subir y organizar carpetas en Google Drive / OneDrive.',
+        'Compartir archivos grandes mediante enlaces.',
+        'Controlar quién puede ver o editar tus documentos.'
+      ],
+      steps: [
+        {
+          title: 'Paso 1: Subir Archivos',
+          content: 'Arrastra tus archivos directamente desde tu escritorio hacia la ventana del navegador abierta en Drive o OneDrive. Verás una barra de progreso indicando la subida.',
+        },
+        {
+          title: 'Paso 2: Compartir con Enlace',
+          content: 'Haz clic derecho sobre el archivo > "Compartir". En lugar de añadir correos uno por uno, busca "Copiar enlace". Esto crea una URL que puedes enviar por WhatsApp o correo.',
+        },
+        {
+          title: 'Paso 3: Permisos (Lectura vs Edición)',
+          content: 'Antes de enviar el enlace, elige el permiso. \n\n• "Lector": Solo pueden ver y descargar (ideal para trabajos finales).\n• "Editor": Pueden borrar y modificar todo (ideal para trabajos en grupo).',
+        }
+      ],
+      interactive: {
+        title: 'Práctica de Nube',
+        description: 'Sube un archivo y genera un enlace seguro.',
+        activityBrief: 'Sube un documento de prueba a tu nube y genera un enlace que sea SOLO de lectura (Lector).',
+        checklist: [
+          'He subido un archivo a la nube',
+          'He generado un enlace para compartir',
+          'He configurado los permisos a "Solo Lectura/Lector"',
+          'He probado abrir el enlace en una ventana de incógnito'
+        ]
+      },
+      keyPoints: [
+        'Diferencia entre "Acceso de lectura" y "Acceso de edición".',
+        'La nube es tu respaldo automático: úsala siempre.',
+        'Organiza por carpetas (Semestre 1 > Materia A) para no perderte.'
+      ]
+    },
+    imageUrl: '/image/cloud.png',
+    dataAiHint: 'cloud storage'
+  },
+  {
+    moduleId: 'productivity003',
+    title: 'Superpoderes con el Teclado',
+    description: 'Ahorra horas de trabajo aprendiendo los atajos esenciales (Ctrl+C, Ctrl+V, Alt+Tab, Windows+D).',
+    skillCategory: 'Herramientas de Productividad',
+    content: {
+      intro: '¿Quieres terminar tu tarea en la mitad del tiempo? Los atajos de teclado son el secreto de los profesionales. Reduce el uso del ratón y vuela por tus documentos.',
+      objectives: [
+        'Dominar los "Cuatro Fantásticos": Copiar, Cortar, Pegar y Deshacer.',
+        'Cambiar entre ventanas sin tocar el ratón.',
+        'Minimizar todo rápidamente cuando necesites el escritorio.'
+      ],
+      steps: [
+        {
+          title: 'Paso 1: Los Básicos (Ctrl + C, V, X, Z)',
+          content: '• Ctrl+C (Copiar) y Ctrl+V (Pegar) son esenciales.\n• Ctrl+X (Cortar) mueve el texto.\n• Ctrl+Z (Deshacer) es tu salvavidas si te equivocas.',
+        },
+        {
+          title: 'Paso 2: Navegación (Alt + Tab)',
+          content: 'Mantén presionado "Alt" y pulsa "Tab" para cambiar rápidamente entre las ventanas abiertas. ¡Ideal para investigar y escribir al mismo tiempo!',
+        },
+        {
+          title: 'Paso 3: Escritorio Inmediato (Win + D)',
+          content: '¿Muchas ventanas abiertas? Presiona la tecla Windows + D para minimizar todo al instante y ver tu escritorio.',
+        }
+      ],
+      interactive: {
+        title: 'Gimnasio de Dedos',
+        description: 'Practica estos movimientos hasta que sean memoria muscular.',
+        activityBrief: 'Abre dos ventanas (ej. navegador y Word). Usa Alt+Tab para cambiar entre ellas 5 veces sin tocar el ratón. Luego copia un texto de una a otra.',
+        checklist: [
+          'He usado Alt+Tab para cambiar de ventana',
+          'He copiado y pegado texto usando solo el teclado',
+          'He usado Windows+D para ir al escritorio',
+          'He usado Ctrl+Z para corregir un error intencional'
+        ]
+      },
+      keyPoints: [
+        'El flujo de trabajo sin usar el ratón para tareas repetitivas ahorra horas al año.',
+        'Ctrl+Z es tu mejor amigo para corregir errores.',
+        'Alt+Tab te convierte en un experto multitarea.'
+      ]
+    },
+    imageUrl: '/image/keyboard.png',
+    dataAiHint: 'keyboard shortcut'
+  },
+  {
+    moduleId: 'collab002',
+    title: 'Captura y Comparte tu Pantalla',
+    description: 'Una imagen vale más que mil palabras. Aprende a usar la herramienta de recortes para mostrar exactamente lo que ves.',
+    skillCategory: 'Colaboración en Línea',
+    content: {
+      intro: 'A veces es difícil explicar un problema técnico con palabras. Una captura de pantalla muestra exactamente lo que ves, facilitando la ayuda de profesores y soporte técnico.',
+      objectives: [
+        'Tomar capturas de pantalla parciales o completas.',
+        'Usar la herramienta de recortes nativa de tu sistema.',
+        'Anotar o resaltar partes importantes de la captura.'
+      ],
+      steps: [
+        {
+          title: 'Paso 1: El Atajo Maestro (Win + Shift + S)',
+          content: 'En Windows, presiona Windows + Shift + S. La pantalla se oscurecerá y podrás seleccionar exactamente qué área quieres copiar. En Mac, usa Cmd + Shift + 4.',
+        },
+        {
+          title: 'Paso 2: Pegar Inmediatamente',
+          content: 'La captura se guarda en el portapapeles. Solo ve a tu correo, chat o documento y presiona Ctrl + V para pegarla. No es necesario guardar el archivo primero.',
+        },
+        {
+          title: 'Paso 3: Anotar (Opcional)',
+          content: 'Si haces clic en la notificación que aparece, podrás dibujar flechas o resaltar texto antes de guardar o compartir la imagen.',
+        }
+      ],
+      interactive: {
+        title: 'Captura la Evidencia',
+        description: 'Prueba la herramienta de recorte ahora.',
+        activityBrief: 'Toma una captura de pantalla de esta misma ventana (solo un recuadro pequeño, no toda la pantalla) y pégala en un documento en blanco.',
+        checklist: [
+          'He usado Win+Shift+S (o Cmd+Shift+4)',
+          'He seleccionado un área específica',
+          'He pegado la imagen en otro programa (Ctrl+V)',
+          'He verificado que la imagen es legible'
+        ]
+      },
+      keyPoints: [
+        'Win + Shift + S (Windows) o Cmd + Shift + 4 (Mac) son más rápidos que buscar la tecla "ImprPant".',
+        'Puedes pegar (Ctrl+V) la captura directamente sin guardarla como archivo.',
+        'Recorta solo lo importante para proteger tu privacidad.'
+      ]
+    },
+    imageUrl: '/image/screenshot.png',
+    dataAiHint: 'screen capture'
   }
 ];
 
