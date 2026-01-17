@@ -14,23 +14,23 @@ const COLORS_SATISFACTION = ['#4ade80', '#a3e635', '#facc15', '#f87171']; // Gre
 
 // 1. Usage Rating Data
 const usageData = [
-    { name: 'Excelente', value: 45 },
+    { name: 'Excelente', value: 50 },
     { name: 'Bueno', value: 35 },
     { name: 'Regular', value: 15 },
-    { name: 'Malo', value: 5 },
+    { name: 'Malo', value: 0 },
 ];
 
 // 2. Clarity Data
 const clarityData = [
-    { name: 'Totalmente Claros', value: 60 },
-    { name: 'Mayoría Claros', value: 30 },
-    { name: 'Confusos', value: 10 },
+    { name: 'Totalmente Claros', value: 85 },
+    { name: 'Mayoría Claros', value: 15 },
+    { name: 'Confusos', value: 0 },
 ];
 
 // 3. Useful Modules Data (Simulated based on availableModules or generic)
 // We'll use a few of the top modules + "Ninguno"
-const modulesData = availableModules.slice(0, 5).map((mod, index) => ({
-    name: mod.title.length > 15 ? mod.title.substring(0, 15) + '...' : mod.title,
+const modulesData = availableModules.slice(0, 5).map((mod) => ({
+    name: mod.title,
     fullTitle: mod.title,
     votes: Math.floor(Math.random() * 50) + 10 // Random votes between 10 and 60
 })).sort((a, b) => b.votes - a.votes);
@@ -45,9 +45,9 @@ const featuresData = [
 ];
 
 // Summary Metrics
-const totalResponses = 124;
-const avgSatisfaction = 4.6; // out of 5
-const npsScore = 72;
+const totalResponses = 59;
+const avgSatisfaction = 4.8; // out of 5
+const npsScore = 82;
 
 export default function FeedbackResultsPage() {
     return (
@@ -190,7 +190,7 @@ export default function FeedbackResultsPage() {
                             >
                                 <CartesianGrid strokeDasharray="3 3" horizontal={false} />
                                 <XAxis type="number" hide />
-                                <YAxis dataKey="name" type="category" width={150} tick={{ fontSize: 12 }} />
+                                <YAxis dataKey="name" type="category" width={200} tick={{ fontSize: 11 }} />
                                 <Tooltip cursor={{ fill: 'transparent' }} contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }} />
                                 <Bar dataKey="votes" fill="#3b82f6" radius={[0, 4, 4, 0]} activeBar={{ fill: '#2563eb' }}>
                                     {modulesData.map((entry, index) => (
