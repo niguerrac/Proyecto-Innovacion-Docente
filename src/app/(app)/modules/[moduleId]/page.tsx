@@ -9,8 +9,10 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Check, ArrowRight, Download, Upload } from 'lucide-react';
 import Link from 'next/link';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useToast } from '@/hooks/use-toast';
+import { saveProgress, getModuleProgress, type ModuleProgress } from '@/lib/progress';
+import { Checkbox } from '@/components/ui/checkbox';
 
 export default function ModulePage({ params }: { params: { moduleId: string } }) {
   const module = availableModules.find(m => m.moduleId === params.moduleId);
@@ -21,6 +23,45 @@ export default function ModulePage({ params }: { params: { moduleId: string } })
   if (!module) {
     notFound();
   }
+
+  const [progress, setProgress] = useState<ModuleProgress | null>(null);
+
+  useEffect(() => {
+    // Load initial progress
+    const loaded = getModuleProgress(params.moduleId);
+    setProgress(loaded);
+  }, [params.moduleId]);
+
+  const handleAccordionChange = (value: string) => {
+    // value is the item-index, e.g. "item-0"
+    if (!progress?.expandedAccordions.includes(value)) {
+      const currentExpanded = progress?.expandedAccordions || [];
+      const newExpanded = [...currentExpanded, value];
+      const updated = saveProgress(params.moduleId, { expandedAccordions: newExpanded });
+      setProgress(updated);
+    }
+  };
+
+  const handleChecklistChange = (item: string, checked: boolean) => {
+    const currentCompleted = progress?.completedActivities || [];
+    let newCompleted;
+    if (checked) {
+      newCompleted = [...currentCompleted, item];
+    } else {
+      newCompleted = currentCompleted.filter(i => i !== item);
+    }
+    const updated = saveProgress(params.moduleId, { completedActivities: newCompleted });
+    setProgress(updated);
+  };
+
+  const handleCompleteModule = () => {
+    const updated = saveProgress(params.moduleId, { isCompleted: true });
+    setProgress(updated);
+    toast({
+      title: '¡Módulo Completado!',
+      description: 'Has completado este módulo exitosamente.',
+    });
+  };
 
   const handleDownload = () => {
     setDownloaded(true);
@@ -158,7 +199,7 @@ export default function ModulePage({ params }: { params: { moduleId: string } })
                 ))}
               </div>
             ) : (
-              <Accordion type="single" collapsible className="w-full">
+              <Accordion type="single" collapsible className="w-full" onValueChange={handleAccordionChange}>
                 {content.steps.map((step: any, index: number) => (
                   <AccordionItem value={`item-${index}`} key={index}>
                     <AccordionTrigger className="text-lg font-semibold">{step.title}</AccordionTrigger>
@@ -196,8 +237,17 @@ export default function ModulePage({ params }: { params: { moduleId: string } })
                   <h4 className="font-bold text-center mb-2">Checklist de Autoevaluación:</h4>
                   {content.interactive.checklist.map((item: string, idx: number) => (
                     <div key={idx} className="flex items-center gap-3 p-3 bg-white/50 rounded border">
-                      <div className="h-5 w-5 rounded-full border-2 border-primary/50" />
-                      <span>{item}</span>
+                      <Checkbox
+                        id={`check-${idx}`}
+                        checked={progress?.completedActivities.includes(item) || false}
+                        onCheckedChange={(checked) => handleChecklistChange(item, checked as boolean)}
+                      />
+                      <label
+                        htmlFor={`check-${idx}`}
+                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
+                      >
+                        {item}
+                      </label>
                     </div>
                   ))}
                 </div>
@@ -264,11 +314,18 @@ export default function ModulePage({ params }: { params: { moduleId: string } })
       )}
 
       <div className="text-center py-6">
-        <Button size="lg" asChild>
-          <Link href="/modules">
-            Módulo Completado: Volver al Catálogo
-            <ArrowRight className="ml-2" />
-          </Link>
+        <Button size="lg" onClick={handleCompleteModule} asChild={progress?.isCompleted}>
+          {progress?.isCompleted ? (
+            <Link href="/dashboard">
+              ¡Módulo Completado! Volver al Dashboard
+              <ArrowRight className="ml-2" />
+            </Link>
+          ) : (
+            <span>
+              Marcar como Completado
+              <Check className="ml-2" />
+            </span>
+          )}
         </Button>
       </div>
     </div>
