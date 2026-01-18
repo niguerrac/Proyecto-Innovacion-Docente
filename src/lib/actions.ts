@@ -8,7 +8,11 @@ export async function getRecommendedModules(assessmentResults: Record<string, nu
     try {
         if (!process.env.GOOGLE_GENAI_API_KEY) {
             console.error("GOOGLE_GENAI_API_KEY no está definida");
-            return { error: "Configuration Error: Falta la API Key. Asegúrate de haber reiniciado el servidor luego de crear el archivo .env.local." };
+            const isProduction = process.env.NODE_ENV === 'production';
+            const errorMessage = isProduction
+                ? "Configuration Error: Falta la variable de entorno GOOGLE_GENAI_API_KEY en el servidor de despliegue."
+                : "Configuration Error: Falta la API Key (GOOGLE_GENAI_API_KEY). Asegúrate de haber reiniciado el servidor luego de crear el archivo .env.local.";
+            return { error: errorMessage };
         }
 
         const input: RecommendLearningModulesInput = {
