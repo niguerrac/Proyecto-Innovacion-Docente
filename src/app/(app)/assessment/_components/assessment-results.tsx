@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import type { AssessmentScores } from '../page';
+import { AssessmentScores, saveProgress } from '@/lib/progress';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { getRecommendedModules } from '@/lib/actions';
@@ -10,7 +10,6 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { Zap, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { saveProgress } from '@/lib/progress';
 
 interface AssessmentResultsProps {
     scores: AssessmentScores;
@@ -42,9 +41,9 @@ export default function AssessmentResults({ scores }: AssessmentResultsProps) {
             } else {
                 setRecommendations({ loading: false, data: result, error: null });
                 // Save recommendations to localStorage so they show up in dashboard
-                result.forEach(mod => {
-                    saveProgress(mod.moduleId, { isRecommended: true });
-                });
+                await Promise.all(result.map(mod =>
+                    saveProgress(mod.moduleId, { isRecommended: true })
+                ));
             }
         };
         fetchRecommendations();

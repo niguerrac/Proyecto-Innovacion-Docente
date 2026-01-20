@@ -28,8 +28,17 @@ export default function ModulePage({ params }: { params: { moduleId: string } })
 
   useEffect(() => {
     // Load initial progress
-    const loaded = getModuleProgress(params.moduleId);
-    setProgress(loaded);
+    const loadProgress = () => {
+      const loaded = getModuleProgress(params.moduleId);
+      setProgress(loaded);
+    };
+
+    loadProgress();
+
+    window.addEventListener('progressUpdated', loadProgress);
+    return () => {
+      window.removeEventListener('progressUpdated', loadProgress);
+    };
   }, [params.moduleId]);
 
   const handleAccordionChange = (value: string) => {

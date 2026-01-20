@@ -5,15 +5,15 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { assessmentQuestions, Question, SkillCategory } from '@/lib/data';
 import AssessmentQuiz from './_components/assessment-quiz';
+import { generateId, getDeviceInfo } from '@/lib/utils';
 import AssessmentResults from './_components/assessment-results';
 import { ArrowRight, Check, HelpCircle } from 'lucide-react';
 import Image from 'next/image';
-import AssessmentHistory, { AssessmentHistoryItem } from './_components/assessment-history';
+import AssessmentHistory from './_components/assessment-history';
 import { History } from 'lucide-react';
+import { getStoredHistory, saveAssessmentHistory, AssessmentHistoryItem, AssessmentScores } from '@/lib/progress';
 
 type QuizState = 'not_started' | 'in_progress' | 'completed';
-
-export type AssessmentScores = Record<SkillCategory, { score: number; total: number }>;
 
 export default function AssessmentPage() {
   const [quizState, setQuizState] = useState<QuizState>('not_started');
@@ -21,15 +21,21 @@ export default function AssessmentPage() {
   const [history, setHistory] = useState<AssessmentHistoryItem[]>([]);
   const [showHistory, setShowHistory] = useState(false);
 
+  const loadHistory = () => {
+    setHistory(getStoredHistory());
+  };
+
   useEffect(() => {
-    const saved = localStorage.getItem('assessment_history');
-    if (saved) {
-      try {
-        setHistory(JSON.parse(saved));
-      } catch (e) {
-        console.error('Failed to parse history', e);
-      }
-    }
+    loadHistory();
+
+    const handleHistoryUpdate = () => {
+      loadHistory();
+    };
+
+    window.addEventListener('historyUpdated', handleHistoryUpdate);
+    return () => {
+      window.removeEventListener('historyUpdated', handleHistoryUpdate);
+    };
   }, []);
 
   const startQuiz = () => {
@@ -51,13 +57,15 @@ export default function AssessmentPage() {
 
     // Save to history
     const newItem: AssessmentHistoryItem = {
-      id: crypto.randomUUID(),
+      id: generateId(),
       date: new Date().toISOString(),
       scores: newScores,
+      deviceInfo: getDeviceInfo(),
     };
-    const newHistory = [...history, newItem];
-    setHistory(newHistory);
-    localStorage.setItem('assessment_history', JSON.stringify(newHistory));
+
+    saveAssessmentHistory(newItem);
+    // State update happens via event listener or we can optimize:
+    setHistory(prev => [...prev, newItem]);
 
     setQuizState('completed');
   };

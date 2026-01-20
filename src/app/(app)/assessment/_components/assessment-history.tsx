@@ -3,14 +3,8 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Calendar } from 'lucide-react';
-import type { AssessmentScores } from '../page';
 import { Progress } from '@/components/ui/progress';
-
-export interface AssessmentHistoryItem {
-    id: string;
-    date: string;
-    scores: AssessmentScores;
-}
+import type { AssessmentHistoryItem, AssessmentScores } from '@/lib/progress';
 
 interface AssessmentHistoryProps {
     history: AssessmentHistoryItem[];
@@ -42,9 +36,17 @@ export default function AssessmentHistory({ history, onBack }: AssessmentHistory
                         <Card key={item.id}>
                             <CardHeader className="pb-3">
                                 <div className="flex justify-between items-center">
-                                    <div className="flex items-center gap-2 text-muted-foreground">
-                                        <Calendar className="h-4 w-4" />
-                                        <span>{new Date(item.date).toLocaleDateString()} {new Date(item.date).toLocaleTimeString()}</span>
+                                    <div className="flex flex-col gap-1">
+                                        <div className="flex items-center gap-2 text-muted-foreground">
+                                            <Calendar className="h-4 w-4" />
+                                            <span>{new Date(item.date).toLocaleDateString()} {new Date(item.date).toLocaleTimeString()}</span>
+                                        </div>
+                                        {item.deviceInfo && (
+                                            <div className="text-[10px] text-muted-foreground flex gap-2">
+                                                <span className="bg-muted px-1.5 py-0.5 rounded">{item.deviceInfo.platform || 'Unknown OS'}</span>
+                                                <span className="bg-muted px-1.5 py-0.5 rounded">{item.deviceInfo.vendor || 'Unknown Browser'}</span>
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             </CardHeader>
